@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KN04.md",
+                "file": "KN01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KN04"
+              "title": "KN01"
             }
           }
         ],
@@ -209,9 +209,9 @@
   "active": "8c1fa557ed6015d0",
   "lastOpenFiles": [
     "KN03.md",
-    "KN04.md",
     "KN02.md",
     "KN01.md",
+    "KN04.md",
     "Unbenannt",
     "README.md",
     "Bilder/Screenshot 2025-05-15 140308.png",
