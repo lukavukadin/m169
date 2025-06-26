@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KN02.md",
+                "file": "KN03.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KN02"
+              "title": "KN03"
             }
           }
         ],
@@ -208,9 +208,12 @@
   },
   "active": "8c1fa557ed6015d0",
   "lastOpenFiles": [
-    "KN01.md",
-    "KN03.md",
+    "Pasted image 20250626134519.png",
     "KN02.md",
+    "KN03.md",
+    "LB2.md",
+    "KN05.md",
+    "KN01.md",
     "KN04.md",
     "Unbenannt",
     "README.md",
