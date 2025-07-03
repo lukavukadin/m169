@@ -37,8 +37,8 @@
 
 ## Kompetenzstufen
 
-| Stufe | Bedeutung         | Note-Richtwert |
-|-------|-------------------|----------------|
-| 1     | Grundlagen         | ≈ 3.5          |
-| 2     | Pflichtstoff       | ≈ 4.75         |
-| 3     | Vertiefung         | ≈ 6.0          |
+| Stufe | Bedeutung    | Note-Richtwert |
+| ----- | ------------ | -------------- |
+| 1     | Grundlagen   | ≈ 3.5          |
+| 2     | Pflichtstoff | ≈ 4.75         |
+| 3     | Vertiefung   | ≈ 6.0          |

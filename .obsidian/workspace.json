@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "435dd6fdd252b55b",
+        "id": "ed905effba3949f0",
         "type": "tabs",
         "children": [
           {
-            "id": "11e5f85ed5c94f3e",
+            "id": "75b2be3d002b49d6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KN02.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KN02"
-            }
-          },
-          {
-            "id": "8c1fa557ed6015d0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "LB2.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "LB2"
+              "title": "README"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -123,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "LB2.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für LB2"
+              "title": "Rückverweise für README"
             }
           },
           {
@@ -206,25 +191,25 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "8c1fa557ed6015d0",
+  "active": "75b2be3d002b49d6",
   "lastOpenFiles": [
-    "KN03.md",
+    "LB2.md",
+    "Bilder/image_03.png",
+    "Pasted image 20250703140913.png",
+    "screenshot_01.png",
+    "screenshot_01 1.png",
+    "Pasted image 20250703141154.png",
+    "Pasted image 20250703141206.png",
+    "Pasted image 20250703140806.png",
     "KN02.md",
+    "KN03.md",
     "KN01.md",
     "Bilder/01.png",
     "Bilder/08.png",
     "Bilder/10.png",
     "README.md",
-    "LB2.md",
     "KN05.md",
     "KN04.md",
-    "Bilder/05.png",
-    "Bilder/07.png",
-    "Bilder/09.png",
-    "Bilder/13.png",
-    "Bilder/ordner_repository.png",
-    "Bilder/generierung_ssh_key.png",
-    "Bilder/Screenshot 2025-05-15 134729.png",
     "Unbenannt.canvas",
     "KN01 1.md",
     "Unbenannt",
