@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KN01.md",
+                "file": "KN03.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KN01"
+              "title": "KN03"
             }
           }
         ],
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "KN01.md",
+                "file": "KN03.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für KN01"
+              "title": "Rückverweise für KN03"
             }
           },
           {
@@ -208,6 +208,7 @@
   },
   "active": "8c1fa557ed6015d0",
   "lastOpenFiles": [
+    "KN01.md",
     "Bilder/01.png",
     "KN03.md",
     "Bilder/08.png",
@@ -216,7 +217,6 @@
     "LB2.md",
     "KN05.md",
     "KN02.md",
-    "KN01.md",
     "KN04.md",
     "Bilder/05.png",
     "Bilder/07.png",
@@ -225,7 +225,6 @@
     "Bilder/ordner_repository.png",
     "Bilder/generierung_ssh_key.png",
     "Bilder/Screenshot 2025-05-15 134729.png",
-    "Bilder/Screenshot 2025-05-15 140308.png",
     "Unbenannt.canvas",
     "KN01 1.md",
     "Unbenannt",
