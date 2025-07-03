@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "KN01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "KN01"
             }
           }
         ],
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "KN01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für README"
+              "title": "Rückverweise für KN01"
             }
           },
           {
@@ -208,9 +208,13 @@
   },
   "active": "8c1fa557ed6015d0",
   "lastOpenFiles": [
+    "Bilder/01.png",
+    "KN03.md",
+    "Bilder/08.png",
+    "Bilder/10.png",
+    "README.md",
     "LB2.md",
     "KN05.md",
-    "README.md",
     "KN02.md",
     "KN01.md",
     "KN04.md",
@@ -218,13 +222,10 @@
     "Bilder/07.png",
     "Bilder/09.png",
     "Bilder/13.png",
-    "Bilder/10.png",
-    "Bilder/08.png",
     "Bilder/ordner_repository.png",
     "Bilder/generierung_ssh_key.png",
     "Bilder/Screenshot 2025-05-15 134729.png",
     "Bilder/Screenshot 2025-05-15 140308.png",
-    "KN03.md",
     "Unbenannt.canvas",
     "KN01 1.md",
     "Unbenannt",
