@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LB2.md",
+                "file": "KN04.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LB2"
+              "title": "KN04"
             }
           }
         ],
@@ -208,9 +208,9 @@
   },
   "active": "8c1fa557ed6015d0",
   "lastOpenFiles": [
+    "LB2.md",
     "Unbenannt.canvas",
     "README.md",
-    "LB2.md",
     "KN05.md",
     "KN04.md",
     "KN03.md",
