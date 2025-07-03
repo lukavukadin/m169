@@ -1,1 +1,1 @@
-![](Bilder/Architektursdiagramm-169.png)
+![](../Bilder/Architektursdiagramm-169.png)
