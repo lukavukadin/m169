@@ -34,7 +34,7 @@ Als Einzelperson möchte ich meine Aufgaben visuell in einem Kanban-Board verwal
 
 ### Anwendung
 
-Nach dem Start der Anwendung kann sich der Benutzer registrieren oder anmelden. Anschließend gelangt man auf das **Kanban-Board**, das in drei Spalten aufgebaut ist:
+**Nach dem Start der Anwendung kann sich der Benutzer registrieren oder anmelden. Anschließend gelangt man auf das Kanban-Board, das in drei Spalten aufgebaut ist:**
 
 - **To Do** – Aufgaben, die noch nicht begonnen wurden
     
@@ -43,7 +43,7 @@ Nach dem Start der Anwendung kann sich der Benutzer registrieren oder anmelden. 
 - **Done** – Erledigte Aufgaben
     
 
-Jede Aufgabe kann:
+**Jede Aufgabe kann:**
 
 - erstellt werden,
     
@@ -82,7 +82,7 @@ Jede Aufgabe kann:
 
 ### Docker Compose
 
-Die Anwendung besteht aus zwei Containern:
+**Die Anwendung besteht aus zwei Containern:**
 
 - **apache-php**: Webserver mit PHP
     
@@ -122,7 +122,7 @@ networks:
 ---
 ### Datenbank
 
-Die Datenbank enthält zwei Tabellen:
+**Die Datenbank enthält zwei Tabellen:**
 
  **`users`**
 
@@ -157,7 +157,7 @@ Die Datenbank enthält zwei Tabellen:
 - Benutzeraktionen sind nur im eingeloggten Zustand möglich.
     
 - SQL-Befehle werden mit Prepared Statements abgesichert.
-    
+
 
 ---
 
