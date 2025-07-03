@@ -13,7 +13,21 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "LB2/Architektursdiagramm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Architektursdiagramm"
+            }
+          },
+          {
+            "id": "ed3cdca21b001e19",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LB2/README.md",
                 "mode": "source",
                 "source": false
               },
@@ -21,7 +35,8 @@
               "title": "README"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -108,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "LB2/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,9 +206,15 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "75b2be3d002b49d6",
+  "active": "ed3cdca21b001e19",
   "lastOpenFiles": [
-    "LB2.md",
+    "LB2/Architektursdiagramm.md",
+    "Bilder/Architektursdiagramm-169.png",
+    "LB2/README.md",
+    "KN01.md",
+    "Unbenannt.canvas",
+    "LB2",
+    "README.md",
     "Bilder/image_03.png",
     "Pasted image 20250703140913.png",
     "screenshot_01.png",
@@ -203,16 +224,11 @@
     "Pasted image 20250703140806.png",
     "KN02.md",
     "KN03.md",
-    "KN01.md",
     "Bilder/01.png",
     "Bilder/08.png",
-    "Bilder/10.png",
-    "README.md",
     "KN05.md",
     "KN04.md",
-    "Unbenannt.canvas",
     "KN01 1.md",
-    "Unbenannt",
     "Unbenannt 1.canvas",
     "Bilder"
   ]

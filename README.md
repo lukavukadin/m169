@@ -17,7 +17,7 @@
 | [KN03](KN03) | Container & OCI Images               |
 | [KN04](KN04) | Containers in Action & Orchestration |
 | [KN05](KN05) | Monitoring & Security                |
-| [LB2](LB2)   | Projektarbeit                        |
+| [README](LB2/README.md)   | Projektarbeit                        |
 
 ---
 
