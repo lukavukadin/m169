@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KN03.md",
+                "file": "LB2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KN03"
+              "title": "LB2"
             }
           }
         ],
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "KN03.md",
+                "file": "LB2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für KN03"
+              "title": "Rückverweise für LB2"
             }
           },
           {
@@ -208,9 +208,9 @@
   },
   "active": "8c1fa557ed6015d0",
   "lastOpenFiles": [
+    "KN03.md",
     "KN02.md",
     "KN01.md",
-    "KN03.md",
     "Bilder/01.png",
     "Bilder/08.png",
     "Bilder/10.png",

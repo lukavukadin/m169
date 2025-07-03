@@ -28,7 +28,7 @@ In dieser LB2 habe ich mich entschieden, ein **Kanban-basiertes To-Do-Board** al
 
 ### User Story
 
-> Als Einzelperson möchte ich meine Aufgaben visuell in einem Kanban-Board verwalten, damit ich jederzeit den Überblick über meine offenen, laufenden und abgeschlossenen Tätigkeiten habe.
+Als Einzelperson möchte ich meine Aufgaben visuell in einem Kanban-Board verwalten, damit ich jederzeit den Überblick über meine offenen, laufenden und abgeschlossenen Tätigkeiten habe.
 
 ---
 
