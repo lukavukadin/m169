@@ -260,4 +260,3 @@ app.use('/api/tasks', taskRoutes);
 
 Nach der Erweiterung des Backends um das Datenmodell und die API-Routen habe ich die laufende Docker-Umgebung mit Strg + C gestoppt und anschliessend mit docker-compose up --build neu gestartet. Damit wurde das Backend neu gebaut und die Änderungen aktiv.
 
-### 2.3 
