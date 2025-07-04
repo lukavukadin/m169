@@ -237,7 +237,7 @@ Im Backend habe ich im Verzeichnis models/ eine Datei Task.js erstellt. Dort wir
 
 Dieses Schema wird zur Erstellung, Speicherung und Abfrage der Aufgaben in der MongoDB verwendet.
 
-![models/Task.js](image_20.png)
+![models/Task.js](/Bilder/image_20.png)
 
 ### 2.2 REST API für Task-Management erstellen
 
