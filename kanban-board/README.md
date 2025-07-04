@@ -258,3 +258,6 @@ app.use('/api/tasks', taskRoutes);
 ![routes/task.js](/Bilder/image_21.png)
 ![anpassung-server.js](/Bilder/image_22.png)
 
+Nach der Erweiterung des Backends um das Datenmodell und die API-Routen habe ich die laufende Docker-Umgebung mit Strg + C gestoppt und anschliessend mit docker-compose up --build neu gestartet. Damit wurde das Backend neu gebaut und die Änderungen aktiv.
+
+### 2.3 
