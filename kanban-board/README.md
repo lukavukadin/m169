@@ -174,3 +174,28 @@ MONGO_URL=mongodb://localhost:27017/kanban
 Der Server lädt diese Variable automatisch beim Start und verwendet sie für den Datenbankzugriff.
 
 ![.env](/Bilder/image_09.png)
+
+
+
+## 1.6 Dockerfile für das Backend erstellen
+
+
+Ich habe im Ordner backend/ ein Dockerfile erstellt, das den Container für das Node.js-Backend definiert. Es basiert auf dem offiziellen Node.js-Image, kopiert alle Projektdateien, installiert Abhängigkeiten und startet den Server.
+
+![alt text](/Bilder/image_12.png)
+
+
+## 1.7 docker-compose.yml erstellen
+
+Im Hauptverzeichnis des Projekts habe ich eine docker-compose.yml Datei erstellt. Diese definiert zwei Services:
+
+- backend: Node.js-Anwendung, wird aus dem lokalen Dockerfile gebaut
+- mongo: Offizieller MongoDB-Container mit Volume zur Datenspeicherung
+Das Compose-Setup ermöglicht eine vollständig containerisierte Umgebung für Entwicklung und Test.
+
+![alt text](/Bilder/image_13.png)
+
+
+## 1.8 Container starten und testen
+
+
