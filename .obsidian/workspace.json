@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "983041d78a0ba185",
+        "id": "1a8b895155cb3252",
         "type": "tabs",
         "children": [
           {
-            "id": "5e9b0877619dd214",
+            "id": "57e215bc65b5c227",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -191,10 +191,15 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "5e9b0877619dd214",
+  "active": "57e215bc65b5c227",
   "lastOpenFiles": [
-    "LB2/Architektursdiagramm.md",
+    "kanban-app/frontend",
+    "kanban-app/Neuer Ordner",
+    "kanban-app/backend",
+    "kanban-app",
+    "Neuer Ordner",
     "LB2/README.md",
+    "LB2/Architektursdiagramm.md",
     "Bilder/Architektursdiagramm-169.png",
     "KN01.md",
     "Unbenannt.canvas",
