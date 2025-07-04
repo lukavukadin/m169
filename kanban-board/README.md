@@ -280,7 +280,7 @@ Die Datei `task.js` war zwar vorhanden, aber:
 - Import in `tasks.js` war: `require('../models/Task')`
 - Tatsächlicher Dateiname: `task.js` (klein)
 
-![alt text](image_24.png)
+![alt text](/Bilder/image_24.png)
 
 ---
 
@@ -293,26 +293,14 @@ Der Import wurde angepasst:
 + const Task = require('../models/task');
 ```
 
-Anschliessend wurde der Container neu gestartet:
+Anschliessend wurde der Container neu gestartet und es hat funktioniert:
 
 ```bash
 docker-compose up --build
 ```
 
-![alt text](image_25-1.png)
-![alt text](image_25.png)
----
+![](/Bilder/image_25)
+![](/Bilder/image_26.png)
 
-**Ergebnis**
-
-- ✅ **MongoDB wurde erfolgreich verbunden**
-- ✅ **Backend läuft auf Port 5000**
-- ✅ **Beide Container (`backend-1`, `mongo-1`) laufen fehlerfrei**
-
----
-
-
-1. MongoDB erfolgreich verbunden  
-2. Docker-Container im aktiven Zustand  
 
 
