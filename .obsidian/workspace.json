@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LB2/Architektursdiagramm.md",
+                "file": "LB2/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Architektursdiagramm"
+              "title": "README"
             }
           }
         ]
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "LB2/Architektursdiagramm.md",
+                "file": "LB2/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für Architektursdiagramm"
+              "title": "Rückverweise für README"
             }
           },
           {
@@ -193,13 +193,13 @@
   },
   "active": "57e215bc65b5c227",
   "lastOpenFiles": [
+    "LB2/Architektursdiagramm.md",
     "kanban-app/frontend",
     "kanban-app/Neuer Ordner",
     "kanban-app/backend",
     "kanban-app",
     "Neuer Ordner",
     "LB2/README.md",
-    "LB2/Architektursdiagramm.md",
     "Bilder/Architektursdiagramm-169.png",
     "KN01.md",
     "Unbenannt.canvas",

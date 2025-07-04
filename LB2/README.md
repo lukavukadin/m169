@@ -52,7 +52,6 @@ Als Einzelperson möchte ich meine Aufgaben visuell in einem Kanban-Board verwal
 - gelöscht werden,
     
 - zwischen den Spalten verschoben werden.
-    
 
 ---
 
@@ -131,7 +130,7 @@ networks:
 - username (VARCHAR)
     
 - password (VARCHAR, gehashed)
-    
+
 
 **`tasks`**
 
@@ -146,7 +145,7 @@ networks:
 - status (ENUM: 'todo', 'in_progress', 'done')
     
 - created_at (DATETIME)
-    
+
 
 ---
 
