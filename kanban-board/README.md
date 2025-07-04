@@ -223,3 +223,38 @@ Kanban Backend läuft`
 ![localhost:5000](/Bilder/image_18.png)
 
 ---
+
+## Sprint 2 – Mongoose Task-Modell erstellen
+
+### 2.1 Datenmodell (Task.js) erstellen
+
+Im Backend habe ich im Verzeichnis models/ eine Datei Task.js erstellt. Dort wird mithilfe von Mongoose ein Schema definiert, das die Struktur eines Tasks beschreibt:
+
+- `title`: Titel der Aufgabe (Pflichtfeld)
+- `description`: Beschreibung (optional)
+- `status`: aktuelle Spalte im Kanban-Board (todo, inprogress, done)
+- `createdAt`: Erstellungsdatum
+
+Dieses Schema wird zur Erstellung, Speicherung und Abfrage der Aufgaben in der MongoDB verwendet.
+
+![models/Task.js](image_20.png)
+
+### 2.2 REST API für Task-Management erstellen
+
+Ich habe im Verzeichnis `routes/` die Datei `tasks.js` erstellt. Sie enthält die CRUD-Endpunkte zur Verwaltung der Kanban-Aufgaben:
+
+- `GET /api/tasks`: Alle Tasks abrufen
+- `POST /api/tasks`: Neuen Task erstellen
+- `DELETE /api/tasks/:id`: Task löschen
+- `PUT /api/tasks/:id/move`: Task in eine andere Spalte verschieben
+
+Die API verwendet das vorher definierte Mongoose-Modell `Task`. In der Datei `server.js` habe ich die Routen mit folgendem Befehl eingebunden:
+
+```js
+const taskRoutes = require('./routes/tasks');
+app.use('/api/tasks', taskRoutes);
+```
+
+![routes/task.js](/Bilder/image_21.png)
+![anpassung-server.js](/Bilder/image_22.png)
+
