@@ -201,7 +201,7 @@ Das Compose-Setup ermöglicht eine vollständig containerisierte Umgebung für E
 Ich habe im Hauptverzeichnis des Projekts den Befehl ausgeführt:
 
 `````
-docker-compose up --build`
+docker-compose up --build
 `````
 ![docker-compose up --build](/Bilder/image_16.png)
 ![backend-erstellt](/Bilder/image_15.png)
@@ -216,7 +216,7 @@ Nach dem Start wurde die Verbindung zur MongoDB in der Konsole mit „MongoDB ve
 Anschliessend konnte ich die Anwendung über den Browser unter http://localhost:5000 aufrufen und erhielt erfolgreich die Nachricht:
 
 ```
-Kanban Backend läuft`
+Kanban Backend läuft
 ```
 
 ![MongoDB verbunden](/Bilder/image_19.png)
