@@ -198,4 +198,26 @@ Das Compose-Setup ermöglicht eine vollständig containerisierte Umgebung für E
 
 ## 1.8 Container starten und testen
 
+Ich habe im Hauptverzeichnis des Projekts den Befehl ausgeführt:
 
+`````
+docker-compose up --build`
+`````
+![docker-compose up --build](/Bilder/image_16.png)
+![backend-erstellt](/Bilder/image_15.png)
+![kanban läuft auf Docker](/Bilder/image_17.png)
+
+Dabei wurden zwei Container gestartet:
+
+- backend: aus meinem eigenen Dockerfile gebaut
+- mongo: offizielle MongoDB aus Docker Hub
+
+Nach dem Start wurde die Verbindung zur MongoDB in der Konsole mit „MongoDB verbunden“ bestätigt.
+Anschliessend konnte ich die Anwendung über den Browser unter http://localhost:5000 aufrufen und erhielt erfolgreich die Nachricht:
+
+```
+Kanban Backend läuft`
+```
+
+![MongoDB verbunden](/Bilder/image_19.png)
+![localhost:5000](/Bilder/image_18.png)
