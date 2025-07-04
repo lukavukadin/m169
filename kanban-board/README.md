@@ -410,15 +410,19 @@ Schritt 6: PUT – Task bearbeiten funktioniert ✅
 
 **Anfrage:**
 
+````
 PUT http://localhost:5000/api/tasks/<gültige-ID>
+````
 
 **Body:**
 
+````
 {
   "title": "Thunder Client testen",
   "description": "Testen der REST-API mit Thunder Client.",
   "status": "todo"
 }
+````
 
 Ergebnis: Task wird erfolgreich aktualisiert.
 
