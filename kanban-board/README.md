@@ -260,3 +260,59 @@ app.use('/api/tasks', taskRoutes);
 
 Nach der Erweiterung des Backends um das Datenmodell und die API-Routen habe ich die laufende Docker-Umgebung mit Strg + C gestoppt und anschliessend mit docker-compose up --build neu gestartet. Damit wurde das Backend neu gebaut und die Änderungen aktiv.
 
+**Fehler beim Start**
+
+Beim ersten Versuch trat folgender Fehler auf:
+
+```
+Error: Cannot find module '../models/Task'
+Require stack:
+- /app/routes/tasks.js
+- /app/server.js
+```
+
+---
+
+**Analyse & Ursache**
+
+Die Datei `task.js` war zwar vorhanden, aber:
+
+- Import in `tasks.js` war: `require('../models/Task')`
+- Tatsächlicher Dateiname: `task.js` (klein)
+
+![alt text](image_24.png)
+
+---
+
+**Lösung**
+
+Der Import wurde angepasst:
+
+```diff
+- const Task = require('../models/Task');
++ const Task = require('../models/task');
+```
+
+Anschliessend wurde der Container neu gestartet:
+
+```bash
+docker-compose up --build
+```
+
+![alt text](image_25-1.png)
+![alt text](image_25.png)
+---
+
+**Ergebnis**
+
+- ✅ **MongoDB wurde erfolgreich verbunden**
+- ✅ **Backend läuft auf Port 5000**
+- ✅ **Beide Container (`backend-1`, `mongo-1`) laufen fehlerfrei**
+
+---
+
+
+1. MongoDB erfolgreich verbunden  
+2. Docker-Container im aktiven Zustand  
+
+
