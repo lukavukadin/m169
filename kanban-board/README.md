@@ -221,3 +221,5 @@ Kanban Backend läuft`
 
 ![MongoDB verbunden](/Bilder/image_19.png)
 ![localhost:5000](/Bilder/image_18.png)
+
+---
