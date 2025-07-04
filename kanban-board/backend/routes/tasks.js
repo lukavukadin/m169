@@ -38,7 +38,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 // PUT: Task-Status ändern (z. B. für Verschieben)
-router.put('/:id/move', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const updatedTask = await Task.findByIdAndUpdate(
       req.params.id,

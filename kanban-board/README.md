@@ -260,7 +260,7 @@ app.use('/api/tasks', taskRoutes);
 
 Nach der Erweiterung des Backends um das Datenmodell und die API-Routen habe ich die laufende Docker-Umgebung mit Strg + C gestoppt und anschliessend mit docker-compose up --build neu gestartet. Damit wurde das Backend neu gebaut und die Änderungen aktiv.
 
-**Fehler beim Start**
+#### Fehler beim Start
 
 Beim ersten Versuch trat folgender Fehler auf:
 
@@ -273,7 +273,7 @@ Require stack:
 
 ---
 
-**Analyse & Ursache**
+#### Analyse & Ursache
 
 Die Datei `task.js` war zwar vorhanden, aber:
 
@@ -284,7 +284,7 @@ Die Datei `task.js` war zwar vorhanden, aber:
 
 ---
 
-**Lösung**
+#### Lösung
 
 Der Import wurde angepasst:
 
@@ -303,4 +303,123 @@ docker-compose up --build
 ![](/Bilder/image_26.png)
 
 
+---
 
+### 2.2: Task-Endpunkte testen mit Thunder Client 🧪
+
+####  Ziel
+Die in Sprint 2.1 implementierten API-Endpunkte sollen mit **Thunder Client** getestet werden, um sicherzustellen, dass sie korrekt funktionieren.
+
+---
+
+#### Thunder Client installieren
+
+Thunder Client ist ein REST-Client, der direkt als Erweiterung in **Visual Studio Code** genutzt werden kann.
+
+**Installation:**
+- VS Code öffnen
+- In der Seitenleiste auf "Extensions" (Erweiterungen) klicken
+- Nach `Thunder Client` suchen und installieren
+
+![ThunderClient](/Bilder/image_28.png)
+
+---
+
+#### GET – Alle Tasks abrufen
+
+**Anfrage:**
+GET http://localhost:5000/api/tasks
+
+Ergebnis:
+- Die Anfrage wird mit `Status 200 OK` beantwortet
+- Wenn noch keine Tasks vorhanden sind, ist das Ergebnis: `[]`
+
+![GET](/Bilder/image_30.png)
+
+---
+
+#### POST – Neuen Task erstellen
+
+**Anfrage:**
+POST http://localhost:5000/api/tasks
+
+````
+**Body (JSON):**
+```json
+{
+  "title": "Thunder Client testen",
+  "description": "Testen der REST-API mit Thunder Client.",
+  "status": "todo"
+}
+````
+
+Ergebnis: Task wurde erfolgreich erstellt und in der Datenbank gespeichert. Die Antwort enthält die erzeugte Task-ID.
+
+![POST](/Bilder/image_32.png)
+
+
+#### PUT – Task bearbeiten (Fehler)
+
+Fehlerhafte Anfrage:
+
+````
+PUT http://localhost:5000/api/tasks/<id>
+````
+
+**Antwort:**
+
+````
+404 Not Found
+Cannot PUT /api/tasks/<id>
+````
+
+![Fehlermeldung PUT](/Bilder/image_36.png)
+
+
+**Ursache:**
+Die Route war ursprünglich falsch definiert:
+
+router.put('/:id/move', ...)
+
+![tasks.js Fehler](/Bilder/image_38.png)
+
+#### Fehlerbehebung
+
+Die Route wurde im Code geändert zu:
+
+````
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedTask = await Task.findByIdAndUpdate(
+      req.params.id,
+      {
+        status: req.body.status
+      },
+      { new: true }
+    );
+    res.json(updatedTask);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+````
+
+![Fehlermeldung behoben](/Bilder/image_40.png)
+
+Schritt 6: PUT – Task bearbeiten funktioniert ✅
+
+**Anfrage:**
+
+PUT http://localhost:5000/api/tasks/<gültige-ID>
+
+**Body:**
+
+{
+  "title": "Thunder Client testen",
+  "description": "Testen der REST-API mit Thunder Client.",
+  "status": "todo"
+}
+
+Ergebnis: Task wird erfolgreich aktualisiert.
+
+![PUT hat Funktioniert](/Bilder/image_39.png)
