@@ -299,7 +299,7 @@ Anschliessend wurde der Container neu gestartet und es hat funktioniert:
 docker-compose up --build
 ```
 
-![](/Bilder/image_25)
+![](/Bilder/image_25.png)
 ![](/Bilder/image_26.png)
 
 
