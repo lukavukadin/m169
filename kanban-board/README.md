@@ -305,7 +305,7 @@ docker-compose up --build
 
 ---
 
-### 2.2: Task-Endpunkte testen mit Thunder Client 🧪
+### 2.2: Task-Endpunkte testen mit Thunder Client
 
 ####  Ziel
 Die in Sprint 2.1 implementierten API-Endpunkte sollen mit **Thunder Client** getestet werden, um sicherzustellen, dass sie korrekt funktionieren.
@@ -406,7 +406,7 @@ router.put('/:id', async (req, res) => {
 
 ![Fehlermeldung behoben](/Bilder/image_40.png)
 
-Schritt 6: PUT – Task bearbeiten funktioniert ✅
+#### PUT – Task bearbeiten funktioniert
 
 **Anfrage:**
 
@@ -427,3 +427,7 @@ PUT http://localhost:5000/api/tasks/<gültige-ID>
 Ergebnis: Task wird erfolgreich aktualisiert.
 
 ![PUT hat Funktioniert](/Bilder/image_39.png)
+
+
+#### DELETE-Request testen
+
