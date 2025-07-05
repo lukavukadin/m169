@@ -431,3 +431,39 @@ Ergebnis: Task wird erfolgreich aktualisiert.
 
 #### DELETE-Request testen
 
+Ich möchte einen bestehenden Task aus der MongoDB-Datenbank löschen – mithilfe eines **DELETE-Requests** im Thunder Client Plugin von Visual Studio Code.
+
+Als erstes habe ich im Thunder Client einen **GET-Request** durchgeführt, um alle Tasks zu sehen:
+   ```
+   GET http://localhost:5000/api/tasks
+   ```
+3. Aus der Antwort habe ich mir die `_id ` eines vorhandenen Tasks gemerkt.
+
+![alt text](/BIlder/image_45.png)
+
+---
+
+**Anfrage:**
+
+   ```
+   DELETE http://localhost:5000/api/tasks
+   ```
+
+   Ergebnis: Task wurde gelöscht.
+
+```json
+{
+  "message": "Task gelöscht"
+}
+```
+
+![alt text](/Bilder/image_46.png)
+
+
+**Prüfen**
+
+Danach habe ich zur Kontrolle nochmals einen GET-Request abgesetzt – und der gelöschte Task war nicht mehr vorhanden.
+
+![alt text](/Bilder/image_47.png)
+
+---
