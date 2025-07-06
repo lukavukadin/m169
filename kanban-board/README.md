@@ -937,15 +937,17 @@ import TaskItem from "./TaskItem";
 ))}
 
 ````
+![alt text](image_80.png)
 
-📸 Screenshot hier einfügen: Code von TaskList.jsx mit dem neuen TaskItem.
 
-✅ 3. App.jsx bleibt wie vorher
+#### 3. Schritt - App.jsx bleibt wie vorher
+
 Da App.jsx schon setTasks an TaskList übergibt, musste ich nichts daran ändern.
 
-📸 Screenshots einfügen:
-Vor dem Löschen: Task mit "Löschen"-Button sichtbar
-(→ Bild 1 einfügen)
+#### Ergebnis
 
-Nach dem Löschen: Task verschwindet sofort ohne Reload
-(→ Bild 2 einfügen)
+Ich konnte erfolgreich einen Task löschen und musste die Seite nicht reloaden
+
+![alt text](image_78.png)
+
+![alt text](image_79.png)
