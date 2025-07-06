@@ -1002,7 +1002,7 @@ function handleSave() {
 - Status wurde aktualisiert
 - Titel & Beschreibung blieben gleich
 
-8929847982374
+![alt text](video-funktioniert-nicht.png)
 
 **Fehlersymptom:**
 
