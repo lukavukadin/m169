@@ -17,10 +17,7 @@ function App() {
       <h1>Kanban Board</h1>
       <p>Willkommen im Frontend meines Kanban-Projekts!</p>
 
-      {/* TaskForm anzeigen */}
-      <TaskForm />
-
-      {/* Aufgabenliste anzeigen */}
+      <TaskForm setTasks={setTasks} />
       <TaskList tasks={tasks} />
     </div>
   );

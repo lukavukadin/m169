@@ -1,32 +1,34 @@
 import { useState } from "react";
 
-function TaskForm() {
+function TaskForm({ setTasks }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("todo");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newTask = {
-      title,
-      description,
-      status,
-    };
+    const newTask = { title, description, status };
 
-    fetch("http://localhost:5000/api/tasks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTask),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Task erstellt:", data);
-        // Optional: Felder zurücksetzen
-        setTitle("");
-        setDescription("");
-        setStatus("todo");
+    try {
+      const response = await fetch("http://localhost:5000/api/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newTask),
       });
+
+      const savedTask = await response.json();
+
+      // Neuen Task zum bestehenden Array hinzufügen
+      setTasks((prevTasks) => [...prevTasks, savedTask]);
+
+      // Formular zurücksetzen
+      setTitle("");
+      setDescription("");
+      setStatus("todo");
+    } catch (error) {
+      console.error("Fehler beim Erstellen des Tasks:", error);
+    }
   };
 
   return (
