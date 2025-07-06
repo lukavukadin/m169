@@ -513,8 +513,6 @@ Ich habe die Startseite von Vite + React gesehen.
 
 ![alt text](/Bilder/image_52.png)
 
-#### 4. Schritt - Ergebnis
-
 Das Frontend läuft erfolgreich im Entwicklungsmodus. Ich bin jetzt bereit, mit der Umsetzung der Benutzeroberfläche für das Kanban-Board zu starten.
 
 ---
