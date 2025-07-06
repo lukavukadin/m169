@@ -41,9 +41,9 @@
 ### Sprint 2: Frontend + Optimierung
 
 **Ziele:**
-
-- React-App mit:
-    - Board-Übersicht
+:
+    - Board-Übers
+- React-App miticht
     - Drag & Drop mit react-beautiful-dnd oder react-dnd
 - API-Anbindung (Axios)
 - Verbesserung:
@@ -467,3 +467,6 @@ Danach habe ich zur Kontrolle nochmals einen GET-Request abgesetzt – und der g
 ![alt text](/Bilder/image_47.png)
 
 ---
+
+## Sprint 3 – Frontend starten
+
