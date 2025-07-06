@@ -679,7 +679,7 @@ Ursprünglich war auch eine `TaskItem.jsx` geplant, aber ich habe mich entschied
 #### 1. Schritt - Neue Datei TaskList.jsx erstellt
 Im Ordner src/ habe ich eine neue Datei TaskList.jsx angelegt.
 
-c:\Users\vukadinl\OneDrive - NZZ\Bilder\Screenpresso\image_66.png
+![alt text](/Bilder/image_66.png)
 
 #### 2. Schritt - Code für TaskList.jsx geschrieben
 
