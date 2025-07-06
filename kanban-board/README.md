@@ -439,7 +439,7 @@ Als erstes habe ich im Thunder Client einen **GET-Request** durchgeführt, um al
    ```
 3. Aus der Antwort habe ich mir die `_id ` eines vorhandenen Tasks gemerkt.
 
-![alt text](/BIlder/image_45.png)
+![](/Bilder/image_45.png)
 
 ---
 
