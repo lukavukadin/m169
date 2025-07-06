@@ -662,3 +662,8 @@ export default App;
 - Es funktioniert, solange Backend + Datenbank korrekt laufen.
 
 ![alt text](/Bilder/image_61.png)
+
+---
+
+### 3.4 – Layout strukturieren und Komponenten erstellen
+

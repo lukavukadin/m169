@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import TaskList from "./components/TaskList";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -14,15 +15,7 @@ function App() {
     <div>
       <h1>Kanban Board</h1>
       <p>Willkommen im Frontend meines Kanban-Projekts!</p>
-
-      <h2>Tasks:</h2>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task._id}>
-            <strong>{task.title}</strong>: {task.description} [{task.status}]
-          </li>
-        ))}
-      </ul>
+      <TaskList tasks={tasks} />
     </div>
   );
 }
