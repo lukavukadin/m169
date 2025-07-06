@@ -1051,4 +1051,4 @@ Task.findByIdAndUpdate(
 - Ich kann jetzt Titel, Beschreibung und Status eines Tasks im Frontend ändern
 - Nach dem Speichern wird die Taskliste automatisch aktualisiert
 
-<video controls src="../mp4/2025-07-06_20h00_40.mp4" title="Title"></video>
+![alt text](/Bilder/2025-07-06_20h29_26-ezgif.com-video-to-gif-converter.gif)
