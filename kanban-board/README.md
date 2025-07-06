@@ -604,3 +604,61 @@ Willkommen im Frontend meines Kanban-Projekts!
 
 ### 3.3 - Verbindung zum Backend testen (API-Aufruf aus React)
 
+#### Ziel:
+
+Ich möchte, dass mein React-Frontend die Daten vom Backend anzeigt – also Tasks, die ich über Thunder Client oder direkt in der Datenbank gespeichert habe.
+
+#### 1. Schritt - Umsetzung:
+
+Ich habe die Datei App.jsx bearbeitet und folgenden Code eingefügt:
+
+````
+import { useEffect, useState } from "react";
+
+function App() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/tasks")
+      .then((res) => res.json())
+      .then((data) => setTasks(data))
+      .catch((err) => console.error("Fehler beim Laden der Tasks:", err));
+  }, []);
+
+  return (
+    <div>
+      <h1>Kanban Board</h1>
+      <p>Willkommen im Frontend meines Kanban-Projekts!</p>
+
+      <h2>Tasks:</h2>
+      <ul>
+        {tasks.map((task) => (
+          <li key={task._id}>
+            <strong>{task.title}</strong>: {task.description} [{task.status}]
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+````
+![alt text](image_62.png)
+
+#### 2. Schritt - Erklärung, was passiert:
+
+| Funktion             | Bedeutung                                                         |
+| -------------------- | ----------------------------------------------------------------- |
+| `useEffect(...)`     | Wird beim Start der Seite ausgeführt (API wird einmal aufgerufen) |
+| `fetch("...")`       | Holt die Task-Daten vom Backend (GET-Request)                     |
+| `setTasks(data)`     | Speichert die empfangenen Daten im State `tasks`                  |
+| `map(...)` in `<ul>` | Zeigt alle Tasks als Liste im Frontend an                         |
+
+
+✅ Ergebnis:
+
+- Ich sehe im Browser jetzt meine gespeicherten Tasks aus der MongoDB.
+- Es funktioniert, solange Backend + Datenbank korrekt laufen.
+
+![alt text](image_61.png)
