@@ -884,5 +884,68 @@ Ich habe also verstanden:
 
 ----
 
-### 3.5 - ...
+### 3.6 - Task löschen (DELETE)
 
+#### Was ich gemacht habe:
+
+In diesem Schritt habe ich mein Kanban-Board erweitert, sodass ich Tasks direkt aus dem Frontend löschen kann. Dafür habe ich eine neue Komponente namens TaskItem.jsx erstellt. Diese zeigt jeweils einen Task mit einem "Löschen"-Button an.
+
+Sobald ich auf den Button klicke, wird der Task aus dem Backend gelöscht – und die Liste aktualisiert sich automatisch, ohne dass ich die Seite neu laden muss.
+
+#### 1. Schritt - Neue Datei TaskItem.jsx erstellt
+
+Ich habe die Datei TaskItem.jsx im components-Ordner erstellt. Diese Komponente erhält den Task sowie die setTasks-Funktion, um nach dem Löschen die Ansicht zu aktualisieren.
+
+````
+function TaskItem({ task, setTasks }) {
+  const deleteTask = () => {
+    fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (res.ok) {
+          setTasks((prevTasks) => prevTasks.filter((t) => t._id !== task._id));
+        }
+      })
+      .catch((err) => console.error("Fehler beim Löschen:", err));
+  };
+
+  return (
+    <li>
+      <strong>{task.title}</strong>: {task.description} [{task.status}]
+      <button onClick={deleteTask}>Löschen</button>
+    </li>
+  );
+}
+
+export default TaskItem;
+````
+
+![alt text](image_74-1.png)
+
+#### 2. Schritt - TaskList.jsx angepasst
+
+In TaskList.jsx habe ich den Import ergänzt und beim Rendern der Liste die neue Komponente verwendet – und setTasks mitgegeben:
+
+````
+import TaskItem from "./TaskItem";
+
+...
+
+{tasks.map((task) => (
+  <TaskItem key={task._id} task={task} setTasks={setTasks} />
+))}
+
+````
+
+📸 Screenshot hier einfügen: Code von TaskList.jsx mit dem neuen TaskItem.
+
+✅ 3. App.jsx bleibt wie vorher
+Da App.jsx schon setTasks an TaskList übergibt, musste ich nichts daran ändern.
+
+📸 Screenshots einfügen:
+Vor dem Löschen: Task mit "Löschen"-Button sichtbar
+(→ Bild 1 einfügen)
+
+Nach dem Löschen: Task verschwindet sofort ohne Reload
+(→ Bild 2 einfügen)

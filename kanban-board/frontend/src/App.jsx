@@ -18,7 +18,7 @@ function App() {
       <p>Willkommen im Frontend meines Kanban-Projekts!</p>
 
       <TaskForm setTasks={setTasks} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 }
