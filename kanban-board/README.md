@@ -470,3 +470,53 @@ Danach habe ich zur Kontrolle nochmals einen GET-Request abgesetzt – und der g
 
 ## Sprint 3 – Frontend starten
 
+### 3.1 Frontend-Projekt mit Vite & React erstellen
+
+Für das Frontend meines Kanban-Projekts habe ich ein neues Projekt mit Vite erstellt. Ich verwende React als Framework, um die Benutzeroberfläche dynamisch und modern zu gestalten.
+
+
+1. Schritt - Projekt erstellen
+
+Ich habe im Hauptordner des Projekts folgenden Befehl ausgeführt:
+
+````
+npm create vite@latest frontend -- --template react
+````
+
+Damit wurde im Ordner frontend/ ein neues React-Projekt erzeugt.
+
+![vite-react](/Bilder/image_49.png)
+
+2. Schritt - Abhängigkeiten installieren
+
+Danach bin ich in den frontend/-Ordner gewechselt und habe alle benötigten Pakete installiert:
+
+````
+cd frontend
+npm install
+````
+
+![npminstall](/Bilder/image_50.png)
+
+
+3. Schritt - Projekt starten
+
+Mit folgendem Befehl habe ich das React-Projekt gestartet:
+
+````
+npm run dev
+````
+![alt text](/Bilder/image_51.png)
+
+Danach war das Projekt unter http://localhost:5173 im Browser erreichbar.
+Ich habe die Startseite von Vite + React gesehen.
+
+![alt text](/Bilder/image_52.png)
+
+Ergebnis
+
+Das Frontend läuft erfolgreich im Entwicklungsmodus. Ich bin jetzt bereit, mit der Umsetzung der Benutzeroberfläche für das Kanban-Board zu starten.
+
+---
+
+### 3.2
