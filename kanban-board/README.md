@@ -753,5 +753,136 @@ Das hilft mir später beim Erweitern des Projekts.
 
 ----
 
-#### 3.5 - 
+#### 3.5 - Task erstellen (POST) über das Frontend
+
+#### Was ich gemacht habe:
+
+In diesem Schritt habe ich eine neue Komponente erstellt, mit der ich direkt im Frontend neue Tasks erstellen kann. Diese werden über einen HTTP POST Request an das Backend gesendet und anschliessend in der Liste angezeigt – ohne die Seite zu aktualisieren.
+
+#### 1. Schritt - Neue Datei TaskForm.jsx erstellt
+
+Ich habe im Ordner src/components/ die Datei TaskForm.jsx angelegt.
+
+![alt text](/Bilder/image_73.png)
+
+#### 2. Schritt - TaskForm.jsx geschrieben
+
+In dieser Komponente habe ich ein Formular programmiert, das title, description und status an das Backend sendet. Nach dem Absenden wird der neue Task automatisch zur Liste hinzugefügt.
+
+````
+import { useState } from "react";
+
+function TaskForm({ setTasks }) {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [status, setStatus] = useState("todo");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newTask = { title, description, status };
+
+    const res = await fetch("http://localhost:5000/api/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTask),
+    });
+
+    const savedTask = await res.json();
+    setTasks((prevTasks) => [...prevTasks, savedTask]);
+
+    // Felder leeren
+    setTitle("");
+    setDescription("");
+    setStatus("todo");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Neuen Task erstellen</h2>
+      <input
+        type="text"
+        placeholder="Titel"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Beschreibung"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <select value={status} onChange={(e) => setStatus(e.target.value)}>
+        <option value="todo">To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <button type="submit">Erstellen</button>
+    </form>
+  );
+}
+
+export default TaskForm;
+````
+
+![alt text](image_74.png)
+
+#### 3. Schritt - App.jsx angepasst
+
+Ich habe die neue Komponente importiert und direkt über die Task-Liste eingefügt. Zusätzlich habe ich setTasks als Prop übergeben, damit das Formular neue Tasks hinzufügen kann.
+
+````
+import { useEffect, useState } from "react";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+
+function App() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/tasks")
+      .then((res) => res.json())
+      .then((data) => setTasks(data))
+      .catch((err) => console.error("Fehler beim Laden der Tasks:", err));
+  }, []);
+
+  return (
+    <div>
+      <h1>Kanban Board</h1>
+      <p>Willkommen im Frontend meines Kanban-Projekts!</p>
+      <TaskForm setTasks={setTasks} />
+      <TaskList tasks={tasks} />
+    </div>
+  );
+}
+
+export default App;
+
+````
+![alt text](image_75.png)
+
+#### 4. Schritt - Task im Browser erstellt
+
+Ich habe nun einen neuen Task direkt im Frontend eingetragen – nach dem Klick auf „Erstellen“ erscheint der neue Task sofort in der Liste, ohne dass ich die Seite neu laden muss.
+
+![](image_71.png)
+
+#### Warum hat es vorher nicht funktioniert?
+
+Zuerst habe ich der neuen Task zwar erfolgreich an das Backend gesendet, aber die React-Komponente hat sich nicht neu gerendert, weil der tasks-State nicht aktualisiert wurde.
+
+#### Warum funktioniert es jetzt?
+
+Durch den Aufruf `setTasks((prevTasks) => [...prevTasks, savedTask])` wird der neue Task direkt zum aktuellen Zustand (`State`) hinzugefügt → und React zeigt die Änderung sofort im UI an.
+
+Ich habe also verstanden:
+
+- wie man ein Formular in React verarbeitet
+- wie man per `fetch` einen Task sendet
+- wie man den `State` aktualisiert, ohne neu zu laden
+
+----
+
+### 3.5 - ...
 
