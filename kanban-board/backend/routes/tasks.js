@@ -42,7 +42,11 @@ router.put('/:id', async (req, res) => {
   try {
     const updatedTask = await Task.findByIdAndUpdate(
       req.params.id,
-      { status: req.body.status },
+      {
+        title: req.body.title,
+        description: req.body.description,
+        status: req.body.status
+      },
       { new: true }
     );
     res.json(updatedTask);
