@@ -602,4 +602,5 @@ Willkommen im Frontend meines Kanban-Projekts!
 
 ---
 
-### 3.3 - 
+### 3.3 - Verbindung zum Backend testen (API-Aufruf aus React)
+
