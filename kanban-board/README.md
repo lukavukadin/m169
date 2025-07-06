@@ -1002,7 +1002,7 @@ function handleSave() {
 - Status wurde aktualisiert
 - Titel & Beschreibung blieben gleich
 
-![alt text](video-funktioniert-nicht.png)
+![alt text](/Bilder/2025-07-06_20h00_40-ezgif.com-video-to-gif-converter.gif)
 
 **Fehlersymptom:**
 
