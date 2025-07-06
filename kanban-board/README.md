@@ -826,7 +826,7 @@ function TaskForm({ setTasks }) {
 export default TaskForm;
 ````
 
-![alt text](image_74.png)
+![alt text](/Bilder/image_74.png)
 
 #### 3. Schritt - App.jsx angepasst
 
@@ -860,7 +860,7 @@ function App() {
 export default App;
 
 ````
-![alt text](/image_75.png)
+![alt text](/Bilder/image_75.png)
 
 #### 4. Schritt - Task im Browser erstellt
 
