@@ -1002,7 +1002,7 @@ function handleSave() {
 - Status wurde aktualisiert
 - Titel & Beschreibung blieben gleich
 
-<video controls src="../mp4/2025-07-06_20h00_40.mp4" title="funktioniert-nicht"></video>
+8929847982374
 
 **Fehlersymptom:**
 
@@ -1051,4 +1051,4 @@ Task.findByIdAndUpdate(
 - Ich kann jetzt Titel, Beschreibung und Status eines Tasks im Frontend ändern
 - Nach dem Speichern wird die Taskliste automatisch aktualisiert
 
-<video controls src="../mp4/2025-07-06_20h29_26.mp4" title="hat-funktioniert!"></video>
+<video controls src="2025-07-06_20h00_40.mp4" title="Title"></video>
