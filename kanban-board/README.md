@@ -1024,7 +1024,7 @@ Task.findByIdAndUpdate(
 ````
 Hier wird nur das Feld status gespeichert – alle anderen Felder (title, description) werden ignoriert, auch wenn sie mitgeschickt wurden.
 
-![alt text](image_90.png)
+![alt text](/Bilder/image_90.png)
 
 #### Lösung: Backend-Route anpassen
 
