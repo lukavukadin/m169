@@ -921,7 +921,7 @@ function TaskItem({ task, setTasks }) {
 export default TaskItem;
 ````
 
-![alt text](/Bilder/image_74-1.png)
+![alt text](/Bilder/image_74.png)
 
 #### 2. Schritt - TaskList.jsx angepasst
 
@@ -956,4 +956,99 @@ Ich konnte erfolgreich einen Task löschen und musste die Seite nicht reloaden
 
 ----
 
-#### 3.7 - 
+### 3.7 - Tasks im Frontend bearbeiten (PUT-Anfrage)
+
+#### Ziel
+Ich wollte ermöglichen, dass man im Frontend **bestehende Tasks bearbeiten** kann – also **Titel**, **Beschreibung** und **Status** ändern.  
+Diese Änderungen sollen per `PUT`-Request an das Backend gesendet und direkt in der Datenbank gespeichert werden.
+
+---
+
+#### Umsetzung im Frontend
+
+Ich habe in der Datei `TaskItem.jsx` eine Bearbeitungsfunktion eingebaut, sodass beim Klick auf „Bearbeiten“ ein Formular erscheint. Nach Änderungen kann man auf „Speichern“ klicken und der neue Task wird ans Backend gesendet.
+
+#### Neue oder geänderte Funktion:
+
+````
+```jsx
+function handleSave() {
+  fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(editedTask),
+  })
+    .then((res) => res.json())
+    .then((updatedTask) => {
+      onUpdate(updatedTask);
+      setIsEditing(false);
+    });
+}
+````
+![alt text](/Bilder/image_94.png)
+
+#### Warum dieser Code
+
+- `editedTask` enthält alle bearbeiteten Felder (title, description, status)
+- Der Request wird an die API geschickt
+- Nach Erfolg wird die Parent-Komponente (`TaskList`) mit den neuen Daten aktualisiert
+
+![alt text](/Bilder/image_93.png)
+
+#### Problem: Änderungen an Titel & Beschreibung wurden nicht übernommen
+
+**Beim Testen habe ich festgestellt:**
+
+- Status wurde aktualisiert
+- Titel & Beschreibung blieben gleich
+
+<video controls src="../mp4/2025-07-06_20h00_40.mp4" title="funktioniert-nicht"></video>
+
+**Fehlersymptom:**
+
+- Ich änderte den Titel, klickte auf „Speichern“
+- Nach dem Reload war nur der Status geändert, der Titel war wieder alt
+
+**Fehlerursache:**
+
+- Backend-Route /api/tasks/:id (PUT)
+- Ich habe im Backend die Datei routes/tasks.js überprüft und folgendes festgestellt:
+
+````
+// Ursprünglicher Code (Fehler!)
+Task.findByIdAndUpdate(
+  req.params.id,
+  { status: req.body.status },
+  { new: true }
+);
+````
+Hier wird nur das Feld status gespeichert – alle anderen Felder (title, description) werden ignoriert, auch wenn sie mitgeschickt wurden.
+
+![alt text](image_90.png)
+
+#### Lösung: Backend-Route anpassen
+
+Ich habe den Code wie folgt geändert:
+
+````
+// Neuer Code – alle Felder werden übernommen!
+Task.findByIdAndUpdate(
+  req.params.id,
+  {
+    title: req.body.title,
+    description: req.body.description,
+    status: req.body.status
+  },
+  { new: true }
+);
+````
+
+![alt text](image_91.png)
+
+
+#### Ergebnis nach Fix:
+
+- Ich kann jetzt Titel, Beschreibung und Status eines Tasks im Frontend ändern
+- Nach dem Speichern wird die Taskliste automatisch aktualisiert
+
+<video controls src="../mp4/2025-07-06_20h29_26.mp4" title="hat-funktioniert!"></video>
