@@ -4,15 +4,23 @@ function TaskItem({ task, onDelete, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTask, setEditedTask] = useState({ ...task });
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     const { name, value } = e.target;
-    setEditedTask({ ...editedTask, [name]: value });
-  };
+    setEditedTask((prev) => ({ ...prev, [name]: value }));
+  }
 
-  const handleSave = () => {
-    onUpdate(editedTask);
-    setIsEditing(false);
-  };
+  function handleSave() {
+    fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editedTask),
+    })
+      .then((res) => res.json())
+      .then((updatedTask) => {
+        onUpdate(updatedTask); // update list in parent
+        setIsEditing(false);
+      });
+  }
 
   return (
     <li>
@@ -38,15 +46,14 @@ function TaskItem({ task, onDelete, onUpdate }) {
             <option value="done">Done</option>
           </select>
           <button onClick={handleSave}>Speichern</button>
-          <button onClick={() => setIsEditing(false)}>Abbrechen</button>
         </>
       ) : (
         <>
           <strong>{task.title}</strong>: {task.description} [{task.status}]
           <button onClick={() => setIsEditing(true)}>Bearbeiten</button>
-          <button onClick={() => onDelete(task._id)}>Löschen</button>
         </>
       )}
+      <button onClick={() => onDelete(task._id)}>Löschen</button>
     </li>
   );
 }
