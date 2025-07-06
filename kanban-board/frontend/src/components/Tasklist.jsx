@@ -10,17 +10,13 @@ function TaskList({ tasks, setTasks }) {
   };
 
   const handleUpdateTask = (updatedTask) => {
-    fetch(`http://localhost:5000/api/tasks/${updatedTask._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedTask),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTasks(
-          tasks.map((task) => (task._id === data._id ? data : task))
-        );
-      });
+    // ❌ fetch hier entfernen
+    // ✅ nur state aktualisieren
+    setTasks(
+      tasks.map((task) =>
+        task._id === updatedTask._id ? updatedTask : task
+      )
+    );
   };
 
   return (
