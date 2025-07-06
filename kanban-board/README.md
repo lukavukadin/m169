@@ -644,7 +644,7 @@ function App() {
 
 export default App;
 ````
-![alt text](image_62.png)
+![alt text](/Bilder/image_62.png)
 
 #### 2. Schritt - Erklärung, was passiert:
 
@@ -661,4 +661,4 @@ export default App;
 - Ich sehe im Browser jetzt meine gespeicherten Tasks aus der MongoDB.
 - Es funktioniert, solange Backend + Datenbank korrekt laufen.
 
-![alt text](image_61.png)
+![alt text](/Bilder/image_61.png)
