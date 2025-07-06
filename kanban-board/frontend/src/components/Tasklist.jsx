@@ -37,3 +37,5 @@ function TaskList({ tasks, setTasks }) {
     </div>
   );
 }
+
+export default TaskList;
