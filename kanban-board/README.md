@@ -519,4 +519,5 @@ Das Frontend läuft erfolgreich im Entwicklungsmodus. Ich bin jetzt bereit, mit 
 
 ---
 
-### 3.2
+### 3.2 - Projektstruktur aufräumen und vorbereiten
+
