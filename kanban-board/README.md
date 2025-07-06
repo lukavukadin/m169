@@ -860,13 +860,13 @@ function App() {
 export default App;
 
 ````
-![alt text](image_75.png)
+![alt text](/image_75.png)
 
 #### 4. Schritt - Task im Browser erstellt
 
 Ich habe nun einen neuen Task direkt im Frontend eingetragen – nach dem Klick auf „Erstellen“ erscheint der neue Task sofort in der Liste, ohne dass ich die Seite neu laden muss.
 
-![](image_71.png)
+![](/Bilder/image_71.png)
 
 #### Warum hat es vorher nicht funktioniert?
 
@@ -921,7 +921,7 @@ function TaskItem({ task, setTasks }) {
 export default TaskItem;
 ````
 
-![alt text](image_74-1.png)
+![alt text](/Bilder/image_74-1.png)
 
 #### 2. Schritt - TaskList.jsx angepasst
 
@@ -937,17 +937,23 @@ import TaskItem from "./TaskItem";
 ))}
 
 ````
-![alt text](image_80.png)
+![alt text](/Bilder/image_80.png)
 
 
 #### 3. Schritt - App.jsx bleibt wie vorher
 
 Da App.jsx schon setTasks an TaskList übergibt, musste ich nichts daran ändern.
 
+![alt text](/Bilder/image_82.png)
+
 #### Ergebnis
 
 Ich konnte erfolgreich einen Task löschen und musste die Seite nicht reloaden
 
-![alt text](image_78.png)
+![alt text](/Bilder/image_78.png)
 
-![alt text](image_79.png)
+![alt text](/Bilder/image_79.png)
+
+----
+
+#### 3.7 - 
