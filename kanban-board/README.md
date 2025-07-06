@@ -475,7 +475,7 @@ Danach habe ich zur Kontrolle nochmals einen GET-Request abgesetzt – und der g
 Für das Frontend meines Kanban-Projekts habe ich ein neues Projekt mit Vite erstellt. Ich verwende React als Framework, um die Benutzeroberfläche dynamisch und modern zu gestalten.
 
 
-1. Schritt - Projekt erstellen
+#### 1. Schritt - Projekt erstellen
 
 Ich habe im Hauptordner des Projekts folgenden Befehl ausgeführt:
 
@@ -487,7 +487,7 @@ Damit wurde im Ordner frontend/ ein neues React-Projekt erzeugt.
 
 ![vite-react](/Bilder/image_49.png)
 
-2. Schritt - Abhängigkeiten installieren
+#### 2. Schritt - Abhängigkeiten installieren
 
 Danach bin ich in den frontend/-Ordner gewechselt und habe alle benötigten Pakete installiert:
 
@@ -499,7 +499,7 @@ npm install
 ![npminstall](/Bilder/image_50.png)
 
 
-3. Schritt - Projekt starten
+#### 3. Schritt - Projekt starten
 
 Mit folgendem Befehl habe ich das React-Projekt gestartet:
 
@@ -513,7 +513,7 @@ Ich habe die Startseite von Vite + React gesehen.
 
 ![alt text](/Bilder/image_52.png)
 
-Ergebnis
+#### 4. Schritt - Ergebnis
 
 Das Frontend läuft erfolgreich im Entwicklungsmodus. Ich bin jetzt bereit, mit der Umsetzung der Benutzeroberfläche für das Kanban-Board zu starten.
 
@@ -521,3 +521,87 @@ Das Frontend läuft erfolgreich im Entwicklungsmodus. Ich bin jetzt bereit, mit 
 
 ### 3.2 - Projektstruktur aufräumen und vorbereiten
 
+#### 1. Schritt: Unnötige Dateien löschen
+
+Nachdem ich das Vite + React Projekt erfolgreich erstellt und im Browser getestet habe, wollte ich die Projektstruktur etwas aufräumen. Ich habe deshalb unnötige Dateien und Ordner gelöscht, die ich im späteren Verlauf nicht brauche.
+
+- ssets/
+- App.css
+- vite.svg
+
+Ich wollte ein sauberes Setup haben, um mit meiner eigenen Struktur zu starten.
+
+![alt text](image_55.png)
+
+#### 2. Schritt: App.jsx anpassen
+
+Danach habe ich die Datei `App.jsx` überarbeitet und folgenden Code eingefügt, um mein Projekt zu starten:
+
+````
+function App() {
+  return (
+    <div>
+      <h1>Kanban Board</h1>
+      <p>Willkommen im Frontend meines Kanban-Projekts!</p>
+    </div>
+  );
+}
+
+export default App;
+
+````
+![alt text](/Bilder/image_54.png)
+
+Anschliessend habe ich wie gewohnt den Befehl ausgeführt:
+
+````
+npm run dev
+````
+Doch plötzlich kam eine Fehlermeldung in der Konsole sowie im Browser:
+
+#### 3. Schritt: Fehler beim Start
+
+Fehlermeldung:
+
+````
+[vite] Internal server error: Failed to resolve import "./index.css" from "src/main.jsx". Does the file exist?
+````
+
+![alt text](/Bilder/image_59.png)
+
+
+#### 4. Schritt: Fehler beheben
+
+Ich habe das Problem gelöst, indem ich im src-Ordner eine neue Datei index.css erstellt habe mit folgendem Inhalt:
+
+```
+body {
+  margin: 0;
+}
+```
+Nach dem Speichern und erneutem Ausführen von npm run dev hat alles funktioniert.
+
+#### 5. Schritt: Warum der Fehler aufgetreten ist:
+
+Der Fehler kam, weil in der Datei main.jsx ein Import vorhanden war:
+
+````
+import './index.css';
+````
+
+Da ich beim Aufräumen die Datei `index.css` gelöscht hatte, konnte Vite den Import nicht auflösen und ist mit einem Fehler abgebrochen.
+
+Mit dem Erstellen der neuen `index.css` und einem kleinen Inhalt `(body { margin: 0; })` wurde das Problem behoben – die Datei war wieder da, und Vite konnte normal starten.
+
+#### 6. Schritt: Ergebnis
+
+Meine Seite wurde wie gewünscht angezeigt:
+
+Kanban Board
+Willkommen im Frontend meines Kanban-Projekts!
+
+![alt text](/Bilder/image_58.png)
+
+---
+
+### 3.3 - 
