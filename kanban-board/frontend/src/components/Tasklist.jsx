@@ -1,3 +1,5 @@
+import TaskItem from "./TaskItem";
+
 function TaskList({ tasks, setTasks }) {
   const handleDeleteTask = (id) => {
     fetch(`http://localhost:5000/api/tasks/${id}`, {
