@@ -667,3 +667,91 @@ export default App;
 
 ### 3.4 – Layout strukturieren und Komponenten erstellen
 
+#### Was ich gemacht habe:
+
+In diesem Schritt habe ich meinen bisherigen Code in App.jsx aufgeräumt und sinnvoll ausgelagert.
+Ich habe eine neue Komponente erstellt:
+
+- `TaskList.jsx` – Diese Komponente zeigt eine Liste aller Tasks an.
+
+Ursprünglich war auch eine `TaskItem.jsx` geplant, aber ich habe mich entschieden, die Darstellung jedes einzelnen Tasks direkt in `TaskList.jsx` zu integrieren. Das war für meine aktuelle Projektgröße einfacher und übersichtlicher.
+
+#### 1. Schritt - Neue Datei TaskList.jsx erstellt
+Im Ordner src/ habe ich eine neue Datei TaskList.jsx angelegt.
+
+c:\Users\vukadinl\OneDrive - NZZ\Bilder\Screenpresso\image_66.png
+
+#### 2. Schritt - Code für TaskList.jsx geschrieben
+
+In dieser Komponente hole ich die Tasks per fetch() aus dem Backend und gebe sie direkt mit einer map()-Funktion als <li>-Elemente aus.
+
+````
+// src/TaskList.jsx
+import { useEffect, useState } from "react";
+
+function TaskList() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/tasks")
+      .then((res) => res.json())
+      .then((data) => setTasks(data));
+  }, []);
+
+  return (
+    <div>
+      <h2>Tasks:</h2>
+      <ul>
+        {tasks.map((task) => (
+          <li key={task._id}>
+            <strong>{task.title}</strong>: {task.description} [{task.status}]
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default TaskList;`
+
+````
+![alt text](/Bilder/image_63.png)
+
+#### 3. Schritt - App.jsx angepasst
+
+In meiner Hauptkomponente App.jsx habe ich TaskList importiert und eingebunden:
+
+````
+import TaskList from "./TaskList";
+
+function App() {
+  return (
+    <div>
+      <h1>Kanban Board</h1>
+      <p>Willkommen im Frontend meines Kanban-Projekts!</p>
+      <TaskList />
+    </div>
+  );
+}
+
+export default App;
+
+````
+
+![alt text](/Bilder/image_65.png)
+
+#### Warum habe ich das gemacht?
+
+Ich habe den Code in eine eigene Komponente ausgelagert, damit:
+
+- mein Code übersichtlicher wird
+- ich leichter neue Funktionen (z. B. löschen, bearbeiten) einbauen kann
+- ich bessere Wiederverwendbarkeit habe
+
+Obwohl sich im Browser fast nichts verändert hat, ist der Code jetzt viel sauberer und strukturierter.
+Das hilft mir später beim Erweitern des Projekts.
+
+----
+
+#### 3.5 - 
+
