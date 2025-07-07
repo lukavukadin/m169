@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1a8b895155cb3252",
+        "id": "2d8774ce43963e22",
         "type": "tabs",
         "children": [
           {
-            "id": "57e215bc65b5c227",
+            "id": "2c18eb2831fad969",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "LB2/README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Neuer Tab"
             }
           }
         ]
@@ -108,7 +104,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "LB2/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +113,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für README"
+              "title": "Rückverweis"
             }
           },
           {
@@ -170,8 +165,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-file",
+              "title": "Erweiterung ist nicht mehr aktiv"
             }
           }
         ]
@@ -182,24 +177,26 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-git:Open Git source control": false,
       "switcher:Schnellauswahl öffnen": false,
       "graph:Graphen-Ansicht öffnen": false,
       "canvas:Neuen Canvas erstellen": false,
       "daily-notes:Heutige Notiz öffnen": false,
       "templates:Vorlage einfügen": false,
-      "command-palette:Befehlspalette öffnen": false
+      "command-palette:Befehlspalette öffnen": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "57e215bc65b5c227",
+  "active": "2c18eb2831fad969",
   "lastOpenFiles": [
+    "KN03.md",
+    "kanban-board/README.md",
+    "LB2/README.md",
     "LB2/Architektursdiagramm.md",
     "kanban-app/frontend",
     "kanban-app/Neuer Ordner",
     "kanban-app/backend",
     "kanban-app",
     "Neuer Ordner",
-    "LB2/README.md",
     "Bilder/Architektursdiagramm-169.png",
     "KN01.md",
     "Unbenannt.canvas",
@@ -213,7 +210,6 @@
     "Pasted image 20250703141206.png",
     "Pasted image 20250703140806.png",
     "KN02.md",
-    "KN03.md",
     "Bilder/01.png",
     "Bilder/08.png",
     "KN05.md",
