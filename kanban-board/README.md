@@ -656,7 +656,7 @@ export default App;
 | `map(...)` in `<ul>` | Zeigt alle Tasks als Liste im Frontend an                         |
 
 
-✅ Ergebnis:
+#### Ergebnis:
 
 - Ich sehe im Browser jetzt meine gespeicherten Tasks aus der MongoDB.
 - Es funktioniert, solange Backend + Datenbank korrekt laufen.
@@ -959,6 +959,7 @@ Ich konnte erfolgreich einen Task löschen und musste die Seite nicht reloaden
 ### 3.7 - Tasks im Frontend bearbeiten (PUT-Anfrage)
 
 #### Ziel
+
 Ich wollte ermöglichen, dass man im Frontend **bestehende Tasks bearbeiten** kann – also **Titel**, **Beschreibung** und **Status** ändern.  
 Diese Änderungen sollen per `PUT`-Request an das Backend gesendet und direkt in der Datenbank gespeichert werden.
 
@@ -1057,27 +1058,29 @@ Task.findByIdAndUpdate(
 
 ### 3.8 – Tasks nach Status sortieren (Spalten-Layout)
 
-✅ Was ich gemacht habe
+#### Was ich gemacht habe
+
 Ich habe mein Frontend so erweitert, dass die Aufgaben nach Status (To Do, In Progress, Done) angezeigt werden – in drei klar getrennten Spalten wie in einem echten Kanban-Board.
 
-🧩 1. TaskList.jsx erweitert
+#### 1. Schritt - TaskList.jsx erweitert
+
 Ich habe in der Datei TaskList.jsx den bisherigen Code angepasst, damit die Aufgaben nicht mehr einfach untereinander angezeigt werden, sondern in drei Gruppen:
 
-🛠️ Neue Logik:
-jsx
-Kopieren
-Bearbeiten
+##### Neue Logik:
+
+````
 const groupedTasks = {
   todo: tasks.filter((t) => t.status === "todo"),
   inprogress: tasks.filter((t) => t.status === "inprogress"),
   done: tasks.filter((t) => t.status === "done"),
 };
-🖼️ Layout als drei Spalten:
+````
+
+#### Layout als drei Spalten:
+
 Ich habe den Rückgabeteil so erweitert, dass die Gruppen nebeneinander angezeigt werden – für ein echtes Board-Feeling:
 
-jsx
-Kopieren
-Bearbeiten
+````
 <div className="task-board">
   {Object.entries(groupedTasks).map(([status, list]) => (
     <div key={status} className="task-column">
@@ -1094,20 +1097,21 @@ Bearbeiten
       </ul>
     </div>
   ))}
-</div>
+</div>`
+````
+
 📸 Screenshot hier einfügen: neue Struktur im Code oder laufendes Frontend mit 3 Spalten
 
-🧩 2. Neue CSS-Datei TaskList.css
+#### 2. Schritt - Neue CSS-Datei TaskList.css
+
 Damit die Spalten auch im Layout funktionieren und gut aussehen, habe ich eine neue Datei TaskList.css erstellt mit folgendem Inhalt:
 
-css
-Kopieren
-Bearbeiten
+````
 .task-board {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-}
+}`
 
 .task-column {
   flex: 1;
@@ -1115,64 +1119,115 @@ Bearbeiten
   padding: 10px;
   border-radius: 8px;
 }
-✅ Diese Datei sorgt dafür, dass jede Spalte Platz bekommt, einen grauen Hintergrund hat und optisch vom Rest abgetrennt ist.
+````
 
-📸 Screenshot hier einfügen: TaskList.css im Editor oder das Ergebnis im Browser
+- Diese Datei sorgt dafür, dass jede Spalte Platz bekommt, einen grauen Hintergrund hat und optisch vom Rest abgetrennt ist.
 
-🧩 3. App.jsx angepasst
+![alt text](/Bilder/image_313.png)
+
+### 3. Schritt - App.jsx angepasst
+
 Ich habe in der App.jsx den Import für die neue CSS-Datei ergänzt:
 
-jsx
-Kopieren
-Bearbeiten
-import "./components/TaskList.css";
-📸 Screenshot hier einfügen: App.jsx im Editor
+```
+import "./components/TaskList.css";`
+```
 
-5.0 – Endprodukt: Kanban-Board funktioniert!
-✅ Was ich nun erreicht habe
+![alt text](/Bilder/image_316.png)
+
+
+#### 4. Schritt – Endprodukt: Kanban-Board funktioniert!
+
+#### Was ich nun erreicht habe
+
 Nach mehreren Schritten habe ich mein vollständiges Kanban-Board erfolgreich umgesetzt. Die Anwendung funktioniert vollständig – von Backend über API bis hin zum interaktiven Frontend mit CRUD-Funktionalitäten:
 
-✨ Features im Überblick
-Funktion	Beschreibung
-🟢 Task erstellen	Über ein Formular im Frontend kann ich neue Aufgaben hinzufügen.
-🟡 Tasks werden in drei Spalten angezeigt	Aufgaben mit Status todo, inprogress oder done werden automatisch sortiert.
-📝 Task bearbeiten	Ich kann Titel, Beschreibung oder den Status eines Tasks ändern.
-❌ Task löschen	Tasks können einfach entfernt werden.
-🔄 Live-Aktualisierung	Sobald ich einen Task hinzufüge oder bearbeite, wird das sofort auf der Seite angezeigt.
+#### Features im Überblick
 
-🖥️ Wie es aussieht
+| Funktion                                      | Beschreibung                                                                             |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Task erstellen**                         | Über ein Formular im Frontend kann ich neue Aufgaben hinzufügen.                         |
+| **Tasks werden in drei Spalten angezeigt** | Aufgaben mit Status `todo`, `inprogress` oder `done` werden automatisch sortiert.        |
+| **Task bearbeiten**                        | Ich kann Titel, Beschreibung oder den Status eines Tasks ändern.                         |
+| **Task löschen**                            | Tasks können einfach entfernt werden.                                                    |
+| **Live-Aktualisierung**                    | Sobald ich einen Task hinzufüge oder bearbeite, wird das sofort auf der Seite angezeigt. |
+
+
+### Wie es aussieht
+
 Das Kanban-Board ist nun in drei Spalten gegliedert:
 
-To Do
-
-In Progress
-
-Done
+- To Do
+- In Progress
+- Done
 
 Die Oberfläche ist aufgeräumt, gut strukturiert und einsatzbereit für weitere Erweiterungen wie Drag & Drop.
 
-📸 Screenshot hier einfügen: vollständiges Board im Browser sichtbar
-
-📽️ Video hier einfügen: kurze Bildschirmaufnahme, wie ich ein Task erstelle, bearbeite, verschiebe oder lösche
-
-🧠 Was ich gelernt habe
-Wie man ein React-Frontend mit Komponentenstruktur aufbaut
-
-Wie man ein Node.js + Express Backend mit MongoDB integriert
-
-Wie man Daten über die REST-API (CRUD) verarbeitet
-
-Wie man ein Layout mit CSS gestaltet
-
-Wie wichtig es ist, Fehler zu verstehen und zu beheben (z. B. Import-Fehler, Backend-Fehler)
-
-Wie ein vollständiger Entwicklungsprozess von Planung → Umsetzung → Testing → Ergebnis aussieht
-
-✅ Projektziel erreicht!
-
-Das Kanban-Board ist voll funktionsfähig und bereit für zukünftige Erweiterungen – z. B. Drag & Drop, Login-System oder Designverbesserungen.
+![DRAG&DROP](/Bilder/2025-07-06_21h04_39-ezgif.com-video-to-gif-converter.gif)
 
 ----
 
+### 3.9 - Drag & Drop für Kanban-Board
 
 
+#### Ziel
+
+Tasks sollen per Drag & Drop zwischen den Statusspalten To Do, In Progress und Done verschoben werden können.
+
+#### 1. Schritt – Paket installieren
+
+Um moderne Drag-and-Drop-Funktionalität zu ermöglichen, wurde das Paket @hello-pangea/dnd installiert:
+````
+npm install @hello-pangea/dnd
+````
+![alt text](/Bilder/image_311.png)
+
+Dieses Paket ist ein moderner Fork von react-beautiful-dnd und kompatibel mit React 19.
+
+#### 2. Schritt – TaskList.jsx umbauen
+
+Ich habe die TaskList.jsx-Komponente erweitert, damit Drag-and-Drop korrekt funktioniert:
+
+**Was wurde geändert?**
+
+- Die gesamte <div className="board"> wurde von <DragDropContext> umgeben.
+- Die drei Spalten To Do, In Progress und Done wurden mit <Droppable>-Bereichen ausgestattet.
+- Jeder einzelne Task ist jetzt ein <Draggable>-Element.
+- Bei Drop wird der Task-Status im Backend aktualisiert und im Frontend sofort reflektiert.
+
+
+![alt text](/Bilder/image_319.png)
+
+**Warum?**
+
+Weil das Drag-and-Drop-System die Positionierung und Statusänderung von Tasks nur erkennt, wenn diese als Draggables in Droppables eingebunden sind.
+
+#### 3. Schritt – App.jsx erweitern
+
+In App.jsx wurde nichts verändert, ausser dass sichergestellt wurde, dass setTasks an TaskList übergeben wird, um den State nach einem Drag-and-Drop-Update neu zu setzen.
+
+![alt text](/Bilder/image_312.png)
+
+#### 4. Schritt – Neue CSS-Styles
+
+In der Datei TaskList.css wurde das Design angepasst, damit:
+
+- Spalten farbig erscheinen (rot, gelb, grün)
+- Tasks visuell klar abgetrennt sind
+- Layout modern und übersichtlich wirkt
+
+**Warum?**
+Weil Drag-and-Drop besser funktioniert, wenn visuell klar ist, wo Aufgaben landen und was verschoben wird.
+
+#### 5. Schritt – Funktioniert alles?
+
+Nach dem Starten von Backend und Frontend konnte erfolgreich:
+
+- Eine neue Aufgabe erstellt werden
+- Ein Task durch Drag-and-Drop in eine andere Spalte verschoben werden
+- Der Status im Backend korrekt gespeichert werden
+- Der Task im Frontend automatisch aktualisiert angezeigt werden
+
+![alt text](/Bilder/2025-07-09_13h48_04-ezgif.com-video-to-gif-converter.gif)
+
+----

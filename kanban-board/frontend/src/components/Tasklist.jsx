@@ -6,7 +6,7 @@ import {
   Draggable,
 } from "@hello-pangea/dnd";
 
-function TaskList({ tasks, setTasks }) {
+function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
   const handleOnDragEnd = (result) => {
     const { source, destination } = result;
 
@@ -14,10 +14,8 @@ function TaskList({ tasks, setTasks }) {
 
     const draggedTask = tasks.find((task) => task._id === result.draggableId);
 
-    // Status ändern
     const updatedTask = { ...draggedTask, status: destination.droppableId };
 
-    // PUT an Backend
     fetch(`http://localhost:5000/api/tasks/${updatedTask._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -70,16 +68,8 @@ function TaskList({ tasks, setTasks }) {
                       >
                         <TaskItem
                           task={task}
-                          onDelete={(id) =>
-                            setTasks(tasks.filter((t) => t._id !== id))
-                          }
-                          onUpdate={(updatedTask) =>
-                            setTasks(
-                              tasks.map((t) =>
-                                t._id === updatedTask._id ? updatedTask : t
-                              )
-                            )
-                          }
+                          onDelete={onDelete}        {/* ✅ nutzt echte Funktion */}
+                          onUpdate={onUpdate}        {/* ✅ bleibt gleich */}
                         />
                       </div>
                     )}
