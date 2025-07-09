@@ -1518,6 +1518,7 @@ Hier ein Beispiel von TaskForm.jsx änderung
 
 ![alt text](image_360.png)
 
+
 #### 8. Schritt - Kanban-Board funktioniert
 
 Nun kann ich erfolgreich auf meiner EC2 Instance Task erstellen:
@@ -1525,3 +1526,17 @@ Nun kann ich erfolgreich auf meiner EC2 Instance Task erstellen:
 ![alt text](image_361.png)
 
 ----
+
+#### 9. Schritt - Domain hinzufügen
+
+Jetzt habe ich auf noip eine Domain erstellt http://kanban-vuk.ddns.net/ mit der IP von der EC2 Instance
+
+![alt text](image_368.png)
+
+#### 10. Schritt
+
+## Endprodukt
+
+Hier sieht man mein Eroflgreiche Website Kanban board man kann task hinzufügen sie drag&drop die tasks verscheiben 
+
+![alt text](/Bilder/endprodukt-kanban-board-vukadin.gif)
