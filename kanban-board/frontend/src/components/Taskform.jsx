@@ -28,33 +28,30 @@ function TaskForm({ setTasks }) {
   }
 
   return (
-    <div className="taskform-container">
-      <h2>Task erstellen</h2>
-      <form onSubmit={handleSubmit} className="taskform">
-        <input
-          type="text"
-          name="title"
-          value={task.title}
-          onChange={handleChange}
-          placeholder="Titel"
-          required
-        />
-        <input
-          type="text"
-          name="description"
-          value={task.description}
-          onChange={handleChange}
-          placeholder="Beschreibung"
-          required
-        />
-        <select name="status" value={task.status} onChange={handleChange}>
-          <option value="todo">To Do</option>
-          <option value="inprogress">In Progress</option>
-          <option value="done">Done</option>
-        </select>
-        <button type="submit">Erstellen</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="taskform">
+      <input
+        type="text"
+        name="title"
+        value={task.title}
+        onChange={handleChange}
+        placeholder="Titel"
+        required
+      />
+      <input
+        type="text"
+        name="description"
+        value={task.description}
+        onChange={handleChange}
+        placeholder="Beschreibung"
+        required
+      />
+      <select name="status" value={task.status} onChange={handleChange}>
+        <option value="todo">To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <button type="submit">Erstellen</button>
+    </form>
   );
 }
 
