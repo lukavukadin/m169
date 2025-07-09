@@ -23,19 +23,17 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
       task._id === updatedTask._id ? updatedTask : task
     );
 
-    setTasks(updatedList); // ⬅️ Lokal sofort zeigen
+    setTasks(updatedList);
 
-    // 🔁 Danach Backend aktualisieren (async)
+    // 🔁 Backend async aktualisieren
     fetch(`http://44.194.82.214:5000/api/tasks/${updatedTask._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
     }).catch((err) => {
       console.error("Fehler beim Aktualisieren:", err);
-      // Optional: Bei Fehler Task wieder zurücksetzen
     });
   };
-
 
   const groupedTasks = {
     todo: tasks.filter((task) => task.status === "todo"),
@@ -58,8 +56,8 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
                   {status === "todo"
                     ? "To Do"
                     : status === "inprogress"
-                      ? "In Progress"
-                      : "Done"}
+                    ? "In Progress"
+                    : "Done"}
                 </h2>
 
                 {groupedTasks[status].map((task, index) => (
@@ -68,12 +66,16 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
                     index={index}
                     key={task._id}
                   >
-                    {(provided) => (
+                    {(provided, snapshot) => (
                       <div
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        key={task._id} // <- HIER ist die wichtige Änderung
+                        style={{
+                          ...provided.draggableProps.style,
+                          transition: snapshot.isDragging ? "none" : "all 0.2s ease",
+                          marginBottom: "10px",
+                        }}
                       >
                         <TaskItem
                           task={task}
@@ -86,7 +88,7 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
                 ))}
 
                 {provided.placeholder}
-                <div style={{ minHeight: "150px" }}></div>
+                <div style={{ minHeight: "100px" }}></div>
               </div>
             )}
           </Droppable>
