@@ -1359,7 +1359,7 @@ Das Formular zur Erstellung eines Tasks soll moderner und zentriert aussehen –
 
 ##### Problem:
 
-Im TaskForm.jsx gab es zweimal den Text "Task erstellen" – oben außerhalb des Formulars und im Formular selbst.
+Im TaskForm.jsx gab es zweimal den Text "Task erstellen" – oben ausserhalb des Formulars und im Formular selbst.
 
 ##### Lösung:
 
