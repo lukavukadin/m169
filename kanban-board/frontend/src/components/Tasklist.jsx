@@ -14,6 +14,9 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
 
     const draggedTask = tasks.find((task) => task._id === result.draggableId);
 
+    if (!draggedTask || draggedTask.status === destination.droppableId) return;
+
+
     const updatedTask = { ...draggedTask, status: destination.droppableId };
 
     fetch(`http://44.194.82.214:5000/api/tasks/${updatedTask._id}`, {
