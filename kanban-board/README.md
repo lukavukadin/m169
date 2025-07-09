@@ -1533,7 +1533,6 @@ Jetzt habe ich auf noip eine Domain erstellt http://kanban-vuk.ddns.net/ mit der
 
 ![alt text](image_368.png)
 
-#### 10. Schritt
 
 ## Endprodukt
 
