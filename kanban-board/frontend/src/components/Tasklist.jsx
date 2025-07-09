@@ -86,7 +86,7 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
                 ))}
 
                 {provided.placeholder}
-                <div style={{ flexGrow: 1 }}></div>
+                <div style={{ minHeight: "40px" }}></div>
               </div>
             )}
           </Droppable>
