@@ -529,7 +529,7 @@ Nachdem ich das Vite + React Projekt erfolgreich erstellt und im Browser geteste
 
 Ich wollte ein sauberes Setup haben, um mit meiner eigenen Struktur zu starten.
 
-![alt text](image_55.png)
+![alt text](/Bilder/image_55.png)
 
 #### 2. Schritt: App.jsx anpassen
 
@@ -1052,3 +1052,9 @@ Task.findByIdAndUpdate(
 - Nach dem Speichern wird die Taskliste automatisch aktualisiert
 
 ![alt text](/Bilder/2025-07-06_20h29_26-ezgif.com-video-to-gif-converter.gif)
+
+----
+
+### 3.8 – Tasks nach Status sortieren (Spalten-Layout)
+
+

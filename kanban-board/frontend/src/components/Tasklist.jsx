@@ -1,37 +1,48 @@
 import TaskItem from "./TaskItem";
+import "./TaskList.css";
 
-function TaskList({ tasks, setTasks }) {
-  const handleDeleteTask = (id) => {
-    fetch(`http://localhost:5000/api/tasks/${id}`, {
-      method: "DELETE",
-    }).then(() => {
-      setTasks(tasks.filter((task) => task._id !== id));
-    });
-  };
-
-  const handleUpdateTask = (updatedTask) => {
-    // ❌ fetch hier entfernen
-    // ✅ nur state aktualisieren
-    setTasks(
-      tasks.map((task) =>
-        task._id === updatedTask._id ? updatedTask : task
-      )
-    );
+function TaskList({ tasks, onDelete, onUpdate }) {
+  const groupedTasks = {
+    todo: tasks.filter((task) => task.status === "todo"),
+    inprogress: tasks.filter((task) => task.status === "inprogress"),
+    done: tasks.filter((task) => task.status === "done"),
   };
 
   return (
-    <div>
-      <h2>Tasks:</h2>
-      <ul>
-        {tasks.map((task) => (
+    <div className="board">
+      <div className="column todo">
+        <h2>To Do</h2>
+        {groupedTasks.todo.map((task) => (
           <TaskItem
             key={task._id}
             task={task}
-            onDelete={handleDeleteTask}
-            onUpdate={handleUpdateTask}
+            onDelete={onDelete}
+            onUpdate={onUpdate}
           />
         ))}
-      </ul>
+      </div>
+      <div className="column inprogress">
+        <h2>In Progress</h2>
+        {groupedTasks.inprogress.map((task) => (
+          <TaskItem
+            key={task._id}
+            task={task}
+            onDelete={onDelete}
+            onUpdate={onUpdate}
+          />
+        ))}
+      </div>
+      <div className="column done">
+        <h2>Done</h2>
+        {groupedTasks.done.map((task) => (
+          <TaskItem
+            key={task._id}
+            task={task}
+            onDelete={onDelete}
+            onUpdate={onUpdate}
+          />
+        ))}
+      </div>
     </div>
   );
 }

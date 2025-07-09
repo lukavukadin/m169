@@ -1,0 +1,36 @@
+.board {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.column {
+  flex: 1;
+  background-color: #f4f4f4;
+  padding: 10px;    
+  border-radius: 10px;
+  min-height: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.column h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.todo h2 {
+  background-color: #e57373;
+}
+
+.inprogress h2 {
+  background-color: #ffd54f;
+}
+
+.done h2 {
+  background-color: #81c784;
+}
