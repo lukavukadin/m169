@@ -11,7 +11,7 @@ function TaskItem({ task, onDelete, onUpdate }) {
   }
 
   function handleSave() {
-    fetch(`http://backend:5000/api/tasks/${task._id}`, {
+    fetch(`http://44.194.82.214:5000/api/tasks/${task._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(editedTask),

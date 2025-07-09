@@ -1217,6 +1217,7 @@ In der Datei TaskList.css wurde das Design angepasst, damit:
 - Layout modern und übersichtlich wirkt
 
 **Warum?**
+
 Weil Drag-and-Drop besser funktioniert, wenn visuell klar ist, wo Aufgaben landen und was verschoben wird.
 
 #### 5. Schritt – Funktioniert alles?
@@ -1233,22 +1234,20 @@ Nach dem Starten von Backend und Frontend konnte erfolgreich:
 ----
 
 
-### 3.10
+### 3.10 - Frontend-Optimierung 
 
 
-#### 1. Schritt
+#### 1. Schritt - Design-Anpassung der Task-Darstellung
 
-📄 Technische Dokumentation – Frontend-Optimierung & AWS-Vorbereitung (ab Designphase)
-🔧 1. Design-Anpassung der Task-Darstellung
-✅ Ziel:
+##### Ziel:
+
 Das Layout der Task-Karten (TaskItem) soll moderner, übersichtlicher und userfreundlicher aussehen.
 
-🧠 Änderungen in TaskItem.jsx:
-Wir haben den Code erweitert, damit die Aufgaben optisch schön dargestellt werden – mit abgerundeten Ecken, Farben, und besseren Buttons:
+##### Änderungen in TaskItem.jsx:
 
-jsx
-Kopieren
-Bearbeiten
+Ich habe den Code erweitert, damit die Aufgaben optisch schön dargestellt wird – mit abgerundeten Ecken, Farben, und besseren Buttons:
+
+````
 <li className="task-card">
   {isEditing ? (
     <>
@@ -1272,14 +1271,14 @@ Bearbeiten
       </div>
     </>
   )}
-</li>
-➡️ Screenshot hinzufügen:
+</li>`
+````
+
 📸 Vorher-Nachher Screenshot einer Task-Karte im Board
 
-🎨 CSS-Styles (TaskItem.css oder global):
-css
-Kopieren
-Bearbeiten
+#### 2. Schritt - CSS-Styles (TaskItem.css oder global):
+
+````
 .task-card {
   background-color: white;
   border-radius: 10px;
@@ -1312,14 +1311,17 @@ Bearbeiten
   padding: 4px 10px;
   border-radius: 5px;
 }
-🧱 2. UI-Verbesserung beim Task-Erstellen
-✅ Ziel:
+````
+
+#### 3. Schritt - UI-Verbesserung beim Task-Erstellen
+
+##### Ziel:
+
 Das Formular zur Erstellung eines Tasks soll moderner und zentriert aussehen – mit besseren Eingabefeldern.
 
-🧠 Änderungen in TaskForm.jsx:
-jsx
-Kopieren
-Bearbeiten
+##### Änderungen in TaskForm.jsx:
+
+````
 <div className="taskform-container">
   <h2>Task erstellen</h2>
   <form className="taskform" onSubmit={handleSubmit}>
@@ -1329,10 +1331,11 @@ Bearbeiten
     <button>Erstellen</button>
   </form>
 </div>
-🎨 CSS:
-css
-Kopieren
-Bearbeiten
+````
+
+##### CSS:
+
+````
 .taskform-container {
   background-color: white;
   border-radius: 12px;
@@ -1351,64 +1354,44 @@ Bearbeiten
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+````
+
 ➡️ Screenshot hinzufügen:
 📸 Neues Task-Formular nach dem Styling (zentriert, modern)
 
-🐛 3. Spring-Bug beim Drag & Drop
-Problem:
-Beim Verschieben eines Tasks springt dieser kurz optisch nach oben, bevor er korrekt dargestellt wird – vor allem bei einer leeren Spalte.
 
-🧠 Lösung:
-In der Datei TaskList.css haben wir die Spalten mit display: flex und flex-direction: column ausgestattet und zusätzlich Platz für das Placeholder-Element gemacht:
+#### 4. Schritt - Entfernung von doppeltem „Task erstellen“ Header
 
-css
-Kopieren
-Bearbeiten
-.column {
-  display: flex;
-  flex-direction: column;
-  min-height: 300px;
-}
+##### Problem:
 
-.column > *:not(:last-child) {
-  margin-bottom: 10px;
-}
-Außerdem:
-➡️ In TaskList.jsx direkt nach provided.placeholder:
-
-jsx
-Kopieren
-Bearbeiten
-{provided.placeholder}
-<div style={{ flexGrow: 1 }}></div>
-➡️ Screenshot hinzufügen:
-📸 Ein GIF oder Bild vom Drag-and-Drop in Aktion (vorher und nachher)
-
-🧼 4. Entfernung von doppeltem „Task erstellen“ Header
-Problem:
 Im TaskForm.jsx gab es zweimal den Text "Task erstellen" – oben außerhalb des Formulars und im Formular selbst.
 
-🧠 Lösung:
-Wir haben die zweite (überflüssige) Überschrift gelöscht:
+##### Lösung:
 
-jsx
-Kopieren
-Bearbeiten
+Ich habe die zweite (überflüssige) Überschrift gelöscht:
+
+````
 // entfernt: <h2>Task erstellen</h2> (im äußeren Container)
+````
+
 ➡️ Screenshot hinzufügen:
+
 📸 Vorher (doppelt) vs. Nachher (nur 1x „Task erstellen“)
 
-📦 5. Dockerisierung des Frontends
-Ziel:
+
+----
+
+### Sprint 4 - Dockerisierung des Frontends
+
+#### Ziel:
+
 Damit das gesamte Projekt (Backend + Frontend + MongoDB) dockerisiert und somit auf AWS oder jeder Plattform deploybar ist.
 
-🧠 Schritte:
-Neue Datei: frontend/Dockerfile
-Inhalt:
+#### 1. Schritt - Neue Datei: frontend/Dockerfile
 
-Dockerfile
-Kopieren
-Bearbeiten
+##### Inhalt:
+
+````
 FROM node:18 AS build
 WORKDIR /app
 COPY . .
@@ -1430,42 +1413,109 @@ frontend:
     - "5173:80"
   depends_on:
     - backend
-➡️ Screenshot hinzufügen:
-📸 Docker-Compose Start mit allen Services (inkl. frontend)
-📸 Browseransicht localhost:5173
+````
 
-☁️ 6. Vorbereitung für Deployment auf AWS EC2
-Ziel:
-Projekt vollständig auf eine EC2-Instanz deployen können – alles dockerisiert & portable.
+![alt text](image_335.png)
 
-To Do:
-EC2 erstellen (Ubuntu 22.04, t2.micro, HTTP/HTTPS/SSH öffnen)
+#### 2. Schritt - docker-compose.yml Datei angepasst
 
-Projekt auf EC2 hochladen via SCP / Git / GitHub Clone
+#### Inhalt:
 
-Docker Compose auf EC2 starten
+````
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+````
 
-Zugriff über öffentliche IPv4-Adresse testen
+![alt text](image_334.png)
+`
+#### 3. Schritt - Docker starten 
 
-➡️ Screenshot hinzufügen:
-📸 AWS EC2-Konfiguration: Instanztyp, Netzwerk, Sicherheitsgruppe
+Ich habe es efolgreich geschafft backend/frontend und mongoDB mit Docker zu starten
 
-Wenn du willst, kann ich dir daraus auch direkt eine .md- oder .pdf-Datei generieren – oder als .docx, wenn du willst, dass es wie ein Word-Dokument aussieht.
+![alt text](image_337.png)
+![alt text](image_339.png)
 
-👉 Sag mir einfach, in welchem Format du die Dokumentation brauchst.
+#### 4. Schritt - Website zugriff testen
+
+Ich konnte mich erfolgreich auf die Website
+
+![alt text](image_342.png)
+
+
+### Sprint 5 - Website Deployment auf AWS EC2
+
+#### 5.1 - Docker Deployment auf AWS EC2
+
+##### 1. Schritt - Projekt auf GitHub gepusht
+
+Als erstes habe ich alle Änderungen auf mein GitHub-Repository gepusht:
+
+````
+git add .
+git commit -m "Frontend integriert & Imports korrigiert"
+git push
+````
+##### 2. Schritt - EC2-Instanz erstellen
+
+- Ubuntu EC2 Instanz gestartet
+- Sicherheitsgruppe erstellt mit Inbound-Regeln:
+    - Port 22 (SSH)
+    - Port 80 (HTTP)
+    - Port 5000 (Backend, optional)
+    - Port 5173 (Vite Dev, optional)
+
+##### 3. Schritt - Cloud-Init (optional)
+
+Beim Starten der Instanz habe ich folgendes Cloud-Init Skript verwendet:
+
+````
+#cloud-config
+package_update: true
+packages:
+  - git
+  - docker.io
+  - docker-compose
+runcmd:
+  - systemctl start docker
+  - systemctl enable docker
+````
+
+##### 4. Schritt - Repository
+
+Ich musste überprüfen ob das Repository geklont wurde und das wurde es auch:
+
+![alt text](image_347.png)
+
+
+##### 5. Schritt - Docker Compose starten
+
+**Befehl:**
+````
+sudo docker-compose up -d --build
+````
+![alt text](image_353.png)
+
+##### 6. Schritt - Webseite im Browser öffnen
+
+Die Seite ist erreichbar unter:
+
+http://44.194.82.214
+
+![alt text](image_357.png)
 
 ----
 
-1. Schritt - Dockerfile erstellt
+#### 7. Schritt - Fehlermeldung
 
-![alt text](image.png)
+- Die Website wird angezeigt jedoch kann ich nichts erstellen oder machen
+- Deswegen muss ich jetz die fetch("http://backend:5000/api/tasks") ändern auf fetch("http://44.194.82.214:5000/api/tasks")
 
+Hier ein Beispiel von TaskForm.jsx änderung
 
-2. Schritt - dockercompose.yml angepasst
+![alt text](image_360.png)
 
-Ich habe den Service Frontend hinzugefügt:
-
-![alt text](image_334.png)
-
-2. Schritt - Docker gestartet
-
+#### 8. Schritt -

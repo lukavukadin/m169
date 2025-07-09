@@ -15,7 +15,7 @@ function TaskForm({ setTasks }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://backend:5000/api/tasks", {
+    fetch("http://44.194.82.214:5000/api/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(task),
