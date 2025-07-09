@@ -1100,7 +1100,6 @@ Ich habe den Rückgabeteil so erweitert, dass die Gruppen nebeneinander angezeig
 </div>`
 ````
 
-📸 Screenshot hier einfügen: neue Struktur im Code oder laufendes Frontend mit 3 Spalten
 
 #### 2. Schritt - Neue CSS-Datei TaskList.css
 
@@ -1274,7 +1273,6 @@ Ich habe den Code erweitert, damit die Aufgaben optisch schön dargestellt wird 
 </li>`
 ````
 
-📸 Vorher-Nachher Screenshot einer Task-Karte im Board
 
 #### 2. Schritt - CSS-Styles (TaskItem.css oder global):
 
@@ -1356,9 +1354,6 @@ Das Formular zur Erstellung eines Tasks soll moderner und zentriert aussehen –
 }
 ````
 
-➡️ Screenshot hinzufügen:
-📸 Neues Task-Formular nach dem Styling (zentriert, modern)
-
 
 #### 4. Schritt - Entfernung von doppeltem „Task erstellen“ Header
 
@@ -1373,11 +1368,6 @@ Ich habe die zweite (überflüssige) Überschrift gelöscht:
 ````
 // entfernt: <h2>Task erstellen</h2> (im äußeren Container)
 ````
-
-➡️ Screenshot hinzufügen:
-
-📸 Vorher (doppelt) vs. Nachher (nur 1x „Task erstellen“)
-
 
 ----
 
@@ -1415,7 +1405,7 @@ frontend:
     - backend
 ````
 
-![alt text](image_335.png)
+![alt text](/Bilder/image_335.png)
 
 #### 2. Schritt - docker-compose.yml Datei angepasst
 
@@ -1430,20 +1420,20 @@ frontend:
       - backend
 ````
 
-![alt text](image_334.png)
+![alt text](/Bilder/image_334.png)
 `
 #### 3. Schritt - Docker starten 
 
 Ich habe es efolgreich geschafft backend/frontend und mongoDB mit Docker zu starten
 
-![alt text](image_337.png)
-![alt text](image_339.png)
+![alt text](/Bilder/image_337.png)
+![alt text](/Bilder/image_339.png)
 
 #### 4. Schritt - Website zugriff testen
 
 Ich konnte mich erfolgreich auf die Website
 
-![alt text](image_342.png)
+![alt text](/Bilder/image_342.png)
 
 
 ### Sprint 5 - Website Deployment auf AWS EC2
@@ -1488,7 +1478,7 @@ runcmd:
 
 Ich musste überprüfen ob das Repository geklont wurde und das wurde es auch:
 
-![alt text](image_347.png)
+![alt text](/Bilder/image_347.png)
 
 
 ##### 5. Schritt - Docker Compose starten
@@ -1497,7 +1487,7 @@ Ich musste überprüfen ob das Repository geklont wurde und das wurde es auch:
 ````
 sudo docker-compose up -d --build
 ````
-![alt text](image_353.png)
+![alt text](/Bilder/image_353.png)
 
 ##### 6. Schritt - Webseite im Browser öffnen
 
@@ -1505,7 +1495,7 @@ Die Seite ist erreichbar unter:
 
 http://44.194.82.214
 
-![alt text](image_357.png)
+![alt text](/Bilder/image_357.png)
 
 ----
 
@@ -1516,14 +1506,14 @@ http://44.194.82.214
 
 Hier ein Beispiel von TaskForm.jsx änderung
 
-![alt text](image_360.png)
+![alt text](/Bilder/image_360.png)
 
 
 #### 8. Schritt - Kanban-Board funktioniert
 
 Nun kann ich erfolgreich auf meiner EC2 Instance Task erstellen:
 
-![alt text](image_361.png)
+![alt text](/Bilder/image_361.png)
 
 ----
 
@@ -1531,7 +1521,7 @@ Nun kann ich erfolgreich auf meiner EC2 Instance Task erstellen:
 
 Jetzt habe ich auf noip eine Domain erstellt http://kanban-vuk.ddns.net/ mit der IP von der EC2 Instance
 
-![alt text](image_368.png)
+![alt text](/Bilder/image_368.png)
 
 
 ## Endprodukt
