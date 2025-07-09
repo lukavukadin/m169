@@ -68,8 +68,8 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
                       >
                         <TaskItem
                           task={task}
-                          onDelete={onDelete}        {/* ✅ nutzt echte Funktion */}
-                          onUpdate={onUpdate}        {/* ✅ bleibt gleich */}
+                          onDelete={onDelete}
+                          onUpdate={onUpdate}
                         />
                       </div>
                     )}
