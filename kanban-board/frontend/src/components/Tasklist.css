@@ -16,6 +16,10 @@
   flex-direction: column;
 }
 
+.column > div:last-child {
+  flex-grow: 1;
+}
+
 .column h2 {
   text-align: center;
   margin-bottom: 10px;

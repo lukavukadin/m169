@@ -54,6 +54,7 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
                     ? "In Progress"
                     : "Done"}
                 </h2>
+
                 {groupedTasks[status].map((task, index) => (
                   <Draggable
                     key={task._id}
@@ -75,7 +76,9 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
                     )}
                   </Draggable>
                 ))}
+
                 {provided.placeholder}
+                <div style={{ flexGrow: 1 }}></div>
               </div>
             )}
           </Droppable>
