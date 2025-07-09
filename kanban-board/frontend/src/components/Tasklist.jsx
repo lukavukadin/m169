@@ -7,31 +7,35 @@ import {
 } from "@hello-pangea/dnd";
 
 function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
-  const handleOnDragEnd = (result) => {
-    const { source, destination } = result;
+const handleOnDragEnd = (result) => {
+  const { source, destination } = result;
 
-    if (!destination) return;
+  if (!destination) return;
 
-    const draggedTask = tasks.find((task) => task._id === result.draggableId);
+  const draggedTask = tasks.find((task) => task._id === result.draggableId);
 
-    if (!draggedTask || draggedTask.status === destination.droppableId) return;
+  if (!draggedTask || draggedTask.status === destination.droppableId) return;
 
+  // 🟢 Optimistisch sofort aktualisieren
+  const updatedTask = { ...draggedTask, status: destination.droppableId };
 
-    const updatedTask = { ...draggedTask, status: destination.droppableId };
+  const updatedList = tasks.map((task) =>
+    task._id === updatedTask._id ? updatedTask : task
+  );
 
-    fetch(`http://44.194.82.214:5000/api/tasks/${updatedTask._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedTask),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const updatedList = tasks.map((task) =>
-          task._id === data._id ? data : task
-        );
-        setTasks(updatedList);
-      });
-  };
+  setTasks(updatedList); // ⬅️ Lokal sofort zeigen
+
+  // 🔁 Danach Backend aktualisieren (async)
+  fetch(`http://44.194.82.214:5000/api/tasks/${updatedTask._id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(updatedTask),
+  }).catch((err) => {
+    console.error("Fehler beim Aktualisieren:", err);
+    // Optional: Bei Fehler Task wieder zurücksetzen
+  });
+};
+
 
   const groupedTasks = {
     todo: tasks.filter((task) => task.status === "todo"),
