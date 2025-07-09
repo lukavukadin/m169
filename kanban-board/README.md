@@ -1528,5 +1528,7 @@ Jetzt habe ich auf noip eine Domain erstellt http://kanban-vuk.ddns.net/ mit der
 
 Hier sieht man mein Eroflgreiche Website Kanban board:
 
+![alt text](/Bilder/image_381.png)
+
 ![alt text](/Bilder/endprodukt-kanban-board-vukadin.gif)
 klicken Sie auf den GIF drauf um es besser zu sehen
