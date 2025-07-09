@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./TaskItem.css";
 
 function TaskItem({ task, onDelete, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,44 +18,56 @@ function TaskItem({ task, onDelete, onUpdate }) {
     })
       .then((res) => res.json())
       .then((updatedTask) => {
-        onUpdate(updatedTask); // update list in parent
+        onUpdate(updatedTask);
         setIsEditing(false);
       });
   }
 
   return (
-    <li>
+    <div className="task-card">
       {isEditing ? (
         <>
           <input
             name="title"
             value={editedTask.title}
             onChange={handleChange}
+            className="task-input"
+            placeholder="Titel"
           />
           <input
             name="description"
             value={editedTask.description}
             onChange={handleChange}
+            className="task-input"
+            placeholder="Beschreibung"
           />
           <select
             name="status"
             value={editedTask.status}
             onChange={handleChange}
+            className="task-select"
           >
             <option value="todo">To Do</option>
             <option value="inprogress">In Progress</option>
             <option value="done">Done</option>
           </select>
-          <button onClick={handleSave}>Speichern</button>
+          <div className="task-buttons">
+            <button onClick={handleSave} className="btn save">Speichern</button>
+            <button onClick={() => setIsEditing(false)} className="btn cancel">Abbrechen</button>
+          </div>
         </>
       ) : (
         <>
-          <strong>{task.title}</strong>: {task.description} [{task.status}]
-          <button onClick={() => setIsEditing(true)}>Bearbeiten</button>
+          <h3>{task.title}</h3>
+          <p>{task.description}</p>
+          <span className="badge">{task.status}</span>
+          <div className="task-buttons">
+            <button onClick={() => setIsEditing(true)} className="btn edit">Bearbeiten</button>
+            <button onClick={() => onDelete(task._id)} className="btn delete">Löschen</button>
+          </div>
         </>
       )}
-      <button onClick={() => onDelete(task._id)}>Löschen</button>
-    </li>
+    </div>
   );
 }
 

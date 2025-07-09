@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/Tasklist.jsx";
+import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -35,11 +36,14 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Kanban Board</h1>
-      <p>Willkommen im Frontend meines Kanban-Projekts!</p>
+    <div className="app-container">
+      <h1 className="title">Kanban Board</h1>
 
-      <TaskForm setTasks={setTasks} />
+      <div className="task-form-container">
+        <h2>Task erstellen</h2>
+        <TaskForm setTasks={setTasks} />
+      </div>
+
       <TaskList
         tasks={tasks}
         setTasks={setTasks}
