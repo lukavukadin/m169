@@ -57,15 +57,16 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
 
                 {groupedTasks[status].map((task, index) => (
                   <Draggable
-                    key={task._id}
                     draggableId={task._id}
                     index={index}
+                    key={task._id}
                   >
                     {(provided) => (
                       <div
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
+                        key={task._id} // <- HIER ist die wichtige Änderung
                       >
                         <TaskItem
                           task={task}

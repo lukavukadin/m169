@@ -1509,7 +1509,7 @@ http://44.194.82.214
 
 ----
 
-#### 7. Schritt - Fehlermeldung
+#### 7. Schritt - Kanban-Board funktioniert nicht
 
 - Die Website wird angezeigt jedoch kann ich nichts erstellen oder machen
 - Deswegen muss ich jetz die fetch("http://backend:5000/api/tasks") ändern auf fetch("http://44.194.82.214:5000/api/tasks")
@@ -1518,4 +1518,10 @@ Hier ein Beispiel von TaskForm.jsx änderung
 
 ![alt text](image_360.png)
 
-#### 8. Schritt -
+#### 8. Schritt - Kanban-Board funktioniert
+
+Nun kann ich erfolgreich auf meiner EC2 Instance Task erstellen:
+
+![alt text](image_361.png)
+
+----
