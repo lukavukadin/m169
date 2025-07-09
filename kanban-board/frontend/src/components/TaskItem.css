@@ -1,16 +1,12 @@
 .task-card {
-  /* Bestehende Stile */
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  min-height: 100px;
   transition: all 0.2s ease;
-  background: white;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-
-  /* 🔧 Wichtige Ergänzungen */
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 
