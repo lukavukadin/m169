@@ -1466,3 +1466,6 @@ Wenn du willst, kann ich dir daraus auch direkt eine .md- oder .pdf-Datei generi
 Ich habe den Service Frontend hinzugefügt:
 
 ![alt text](image_334.png)
+
+2. Schritt - Docker gestartet
+
