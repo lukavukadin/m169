@@ -1231,3 +1231,238 @@ Nach dem Starten von Backend und Frontend konnte erfolgreich:
 ![alt text](/Bilder/2025-07-09_13h48_04-ezgif.com-video-to-gif-converter.gif)
 
 ----
+
+
+### 3.10
+
+
+#### 1. Schritt
+
+📄 Technische Dokumentation – Frontend-Optimierung & AWS-Vorbereitung (ab Designphase)
+🔧 1. Design-Anpassung der Task-Darstellung
+✅ Ziel:
+Das Layout der Task-Karten (TaskItem) soll moderner, übersichtlicher und userfreundlicher aussehen.
+
+🧠 Änderungen in TaskItem.jsx:
+Wir haben den Code erweitert, damit die Aufgaben optisch schön dargestellt werden – mit abgerundeten Ecken, Farben, und besseren Buttons:
+
+jsx
+Kopieren
+Bearbeiten
+<li className="task-card">
+  {isEditing ? (
+    <>
+      <input name="title" value={editedTask.title} onChange={handleChange} />
+      <input name="description" value={editedTask.description} onChange={handleChange} />
+      <select name="status" value={editedTask.status} onChange={handleChange}>
+        <option value="todo">To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <button className="save-btn" onClick={handleSave}>Speichern</button>
+    </>
+  ) : (
+    <>
+      <strong>{task.title}</strong>
+      <p>{task.description}</p>
+      <span className="status-tag">{task.status}</span>
+      <div className="task-actions">
+        <button className="edit-btn" onClick={() => setIsEditing(true)}>Bearbeiten</button>
+        <button className="delete-btn" onClick={() => onDelete(task._id)}>Löschen</button>
+      </div>
+    </>
+  )}
+</li>
+➡️ Screenshot hinzufügen:
+📸 Vorher-Nachher Screenshot einer Task-Karte im Board
+
+🎨 CSS-Styles (TaskItem.css oder global):
+css
+Kopieren
+Bearbeiten
+.task-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover {
+  transform: scale(1.01);
+}
+
+.task-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background-color: #1976d2;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: #d32f2f;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+🧱 2. UI-Verbesserung beim Task-Erstellen
+✅ Ziel:
+Das Formular zur Erstellung eines Tasks soll moderner und zentriert aussehen – mit besseren Eingabefeldern.
+
+🧠 Änderungen in TaskForm.jsx:
+jsx
+Kopieren
+Bearbeiten
+<div className="taskform-container">
+  <h2>Task erstellen</h2>
+  <form className="taskform" onSubmit={handleSubmit}>
+    <input type="text" name="title" placeholder="Titel" />
+    <input type="text" name="description" placeholder="Beschreibung" />
+    <select name="status">...</select>
+    <button>Erstellen</button>
+  </form>
+</div>
+🎨 CSS:
+css
+Kopieren
+Bearbeiten
+.taskform-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.taskform input,
+.taskform select {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+➡️ Screenshot hinzufügen:
+📸 Neues Task-Formular nach dem Styling (zentriert, modern)
+
+🐛 3. Spring-Bug beim Drag & Drop
+Problem:
+Beim Verschieben eines Tasks springt dieser kurz optisch nach oben, bevor er korrekt dargestellt wird – vor allem bei einer leeren Spalte.
+
+🧠 Lösung:
+In der Datei TaskList.css haben wir die Spalten mit display: flex und flex-direction: column ausgestattet und zusätzlich Platz für das Placeholder-Element gemacht:
+
+css
+Kopieren
+Bearbeiten
+.column {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.column > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+Außerdem:
+➡️ In TaskList.jsx direkt nach provided.placeholder:
+
+jsx
+Kopieren
+Bearbeiten
+{provided.placeholder}
+<div style={{ flexGrow: 1 }}></div>
+➡️ Screenshot hinzufügen:
+📸 Ein GIF oder Bild vom Drag-and-Drop in Aktion (vorher und nachher)
+
+🧼 4. Entfernung von doppeltem „Task erstellen“ Header
+Problem:
+Im TaskForm.jsx gab es zweimal den Text "Task erstellen" – oben außerhalb des Formulars und im Formular selbst.
+
+🧠 Lösung:
+Wir haben die zweite (überflüssige) Überschrift gelöscht:
+
+jsx
+Kopieren
+Bearbeiten
+// entfernt: <h2>Task erstellen</h2> (im äußeren Container)
+➡️ Screenshot hinzufügen:
+📸 Vorher (doppelt) vs. Nachher (nur 1x „Task erstellen“)
+
+📦 5. Dockerisierung des Frontends
+Ziel:
+Damit das gesamte Projekt (Backend + Frontend + MongoDB) dockerisiert und somit auf AWS oder jeder Plattform deploybar ist.
+
+🧠 Schritte:
+Neue Datei: frontend/Dockerfile
+Inhalt:
+
+Dockerfile
+Kopieren
+Bearbeiten
+FROM node:18 AS build
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+Erweiterung der docker-compose.yml um den Frontend-Service:
+
+yaml
+Kopieren
+Bearbeiten
+frontend:
+  build: ./frontend
+  ports:
+    - "5173:80"
+  depends_on:
+    - backend
+➡️ Screenshot hinzufügen:
+📸 Docker-Compose Start mit allen Services (inkl. frontend)
+📸 Browseransicht localhost:5173
+
+☁️ 6. Vorbereitung für Deployment auf AWS EC2
+Ziel:
+Projekt vollständig auf eine EC2-Instanz deployen können – alles dockerisiert & portable.
+
+To Do:
+EC2 erstellen (Ubuntu 22.04, t2.micro, HTTP/HTTPS/SSH öffnen)
+
+Projekt auf EC2 hochladen via SCP / Git / GitHub Clone
+
+Docker Compose auf EC2 starten
+
+Zugriff über öffentliche IPv4-Adresse testen
+
+➡️ Screenshot hinzufügen:
+📸 AWS EC2-Konfiguration: Instanztyp, Netzwerk, Sicherheitsgruppe
+
+Wenn du willst, kann ich dir daraus auch direkt eine .md- oder .pdf-Datei generieren – oder als .docx, wenn du willst, dass es wie ein Word-Dokument aussieht.
+
+👉 Sag mir einfach, in welchem Format du die Dokumentation brauchst.
+
+----
+
+1. Schritt - Dockerfile erstellt
+
+![alt text](image.png)
+
+
+2. Schritt - dockercompose.yml angepasst
+
+Ich habe den Service Frontend hinzugefügt:
+
+![alt text](image_334.png)
