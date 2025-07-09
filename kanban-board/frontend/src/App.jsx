@@ -42,6 +42,7 @@ function App() {
       <TaskForm setTasks={setTasks} />
       <TaskList
         tasks={tasks}
+        setTasks={setTasks}
         onDelete={handleDeleteTask}
         onUpdate={handleUpdateTask}
       />

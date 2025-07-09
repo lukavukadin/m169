@@ -1,7 +1,37 @@
 import TaskItem from "./TaskItem";
 import "./TaskList.css";
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+} from "@hello-pangea/dnd";
 
-function TaskList({ tasks, onDelete, onUpdate }) {
+function TaskList({ tasks, setTasks }) {
+  const handleOnDragEnd = (result) => {
+    const { source, destination } = result;
+
+    if (!destination) return;
+
+    const draggedTask = tasks.find((task) => task._id === result.draggableId);
+
+    // Status ändern
+    const updatedTask = { ...draggedTask, status: destination.droppableId };
+
+    // PUT an Backend
+    fetch(`http://localhost:5000/api/tasks/${updatedTask._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedTask),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const updatedList = tasks.map((task) =>
+          task._id === data._id ? data : task
+        );
+        setTasks(updatedList);
+      });
+  };
+
   const groupedTasks = {
     todo: tasks.filter((task) => task.status === "todo"),
     inprogress: tasks.filter((task) => task.status === "inprogress"),
@@ -9,41 +39,59 @@ function TaskList({ tasks, onDelete, onUpdate }) {
   };
 
   return (
-    <div className="board">
-      <div className="column todo">
-        <h2>To Do</h2>
-        {groupedTasks.todo.map((task) => (
-          <TaskItem
-            key={task._id}
-            task={task}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-          />
+    <DragDropContext onDragEnd={handleOnDragEnd}>
+      <div className="board">
+        {["todo", "inprogress", "done"].map((status) => (
+          <Droppable droppableId={status} key={status}>
+            {(provided) => (
+              <div
+                className={`column ${status}`}
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                <h2>
+                  {status === "todo"
+                    ? "To Do"
+                    : status === "inprogress"
+                    ? "In Progress"
+                    : "Done"}
+                </h2>
+                {groupedTasks[status].map((task, index) => (
+                  <Draggable
+                    key={task._id}
+                    draggableId={task._id}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <TaskItem
+                          task={task}
+                          onDelete={(id) =>
+                            setTasks(tasks.filter((t) => t._id !== id))
+                          }
+                          onUpdate={(updatedTask) =>
+                            setTasks(
+                              tasks.map((t) =>
+                                t._id === updatedTask._id ? updatedTask : t
+                              )
+                            )
+                          }
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
         ))}
       </div>
-      <div className="column inprogress">
-        <h2>In Progress</h2>
-        {groupedTasks.inprogress.map((task) => (
-          <TaskItem
-            key={task._id}
-            task={task}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-          />
-        ))}
-      </div>
-      <div className="column done">
-        <h2>Done</h2>
-        {groupedTasks.done.map((task) => (
-          <TaskItem
-            key={task._id}
-            task={task}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-          />
-        ))}
-      </div>
-    </div>
+    </DragDropContext>
   );
 }
 
