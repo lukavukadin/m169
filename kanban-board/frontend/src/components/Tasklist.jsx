@@ -16,7 +16,7 @@ function TaskList({ tasks, setTasks, onDelete, onUpdate }) {
 
     const updatedTask = { ...draggedTask, status: destination.droppableId };
 
-    fetch(`http://localhost:5000/api/tasks/${updatedTask._id}`, {
+    fetch(`http://backend:5000/api/tasks/${updatedTask._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),

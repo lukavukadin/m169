@@ -7,7 +7,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/tasks")
+    fetch("http://backend:5000/api/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error("Fehler beim Laden der Tasks:", err));
@@ -15,7 +15,7 @@ function App() {
 
   // Funktion zum Löschen
   function handleDeleteTask(id) {
-    fetch(`http://localhost:5000/api/tasks/${id}`, {
+    fetch(`http://backend:5000/api/tasks/${id}`, {
       method: "DELETE",
     }).then(() => {
       setTasks(tasks.filter((task) => task._id !== id));
@@ -24,7 +24,7 @@ function App() {
 
   // Funktion zum Aktualisieren
   function handleUpdateTask(updatedTask) {
-    fetch(`http://localhost:5000/api/tasks/${updatedTask._id}`, {
+    fetch(`http://backend:5000/api/tasks/${updatedTask._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
