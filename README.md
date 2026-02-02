@@ -12,12 +12,11 @@
 
 | Kürzel       | Thema                                |
 | ------------ | ------------------------------------ |
-| [KN01](KN01) | Toolumgebung einrichten              |
-| [KN02](KN02) | Infrastruktur bereitstellen          |
-| [KN03](KN03) | Container & OCI Images               |
-| [KN04](KN04) | Containers in Action & Orchestration |
-| [KN05](KN05) | Monitoring & Security                |
-| [README](LB2/README.md)   | Projektarbeit                        |
+| [KN01](/KN01.md) | Toolumgebung einrichten              |
+| [KN02](/KN02.md) | Infrastruktur bereitstellen          |
+| [KN03](/KN03.md) | Container & OCI Images               |
+| [KN04](/KN04.md) | Containers in Action & Orchestration |
+| [Kanban-Board](/kanban-board/) | Projektarbeit                        |
 
 ---
 
