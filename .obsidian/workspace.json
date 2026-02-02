@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2d8774ce43963e22",
+        "id": "0a9e6ef4f37744cb",
         "type": "tabs",
         "children": [
           {
-            "id": "2c18eb2831fad969",
+            "id": "2ac74cb1c06ba1ec",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -118,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für KN03"
+              "title": "Rückverweise auf KN03"
             }
           },
           {
@@ -182,8 +182,9 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Neue Base erstellen": false,
+      "graph:Graph-Ansicht öffnen": false,
       "switcher:Schnellauswahl öffnen": false,
-      "graph:Graphen-Ansicht öffnen": false,
       "canvas:Neuen Canvas erstellen": false,
       "daily-notes:Heutige Notiz öffnen": false,
       "templates:Vorlage einfügen": false,
@@ -191,9 +192,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2c18eb2831fad969",
+  "active": "2ac74cb1c06ba1ec",
   "lastOpenFiles": [
+    "KN04.md",
+    "KN02.md",
+    "KN01.md",
+    "Unbenannt.canvas",
+    "README.md",
     "KN03.md",
+    "Bilder/endprodukt-kanban-board-vukadin.gif",
+    "kanban-board/Dokumentation.md",
     "kanban-board/README.md",
     "LB2/README.md",
     "LB2/Architektursdiagramm.md",
@@ -203,10 +211,7 @@
     "kanban-app",
     "Neuer Ordner",
     "Bilder/Architektursdiagramm-169.png",
-    "KN01.md",
-    "Unbenannt.canvas",
     "LB2",
-    "README.md",
     "Bilder/image_03.png",
     "Pasted image 20250703140913.png",
     "screenshot_01.png",
@@ -214,11 +219,8 @@
     "Pasted image 20250703141154.png",
     "Pasted image 20250703141206.png",
     "Pasted image 20250703140806.png",
-    "KN02.md",
     "Bilder/01.png",
-    "Bilder/08.png",
     "KN05.md",
-    "KN04.md",
     "KN01 1.md",
     "Unbenannt 1.canvas",
     "Bilder"
